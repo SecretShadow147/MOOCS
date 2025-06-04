@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-translate-key="page_title">Nền tảng MOOCs</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">Luk Global MOOCS</div>
+            <nav>
+                <ul>
+                    <li><a href="#" data-translate-key="nav_explore_courses">Khám phá khóa học</a></li>
+                    <li><a href="#" data-translate-key="nav_instructors">Giảng viên</a></li>
+                    <li><a href="#" data-translate-key="nav_about_us">Về chúng tôi</a></li>
+                    <li><a href="#" id="loginBtnHeader" data-translate-key="nav_login">Đăng nhập</a></li>
+                    <li class="cta"><a href="#" id="registerBtnHeader" data-translate-key="nav_register_free">Đăng ký miễn phí</a></li>
+                </ul>
+            </nav>
+            <div class="language-switcher">
+    <select id="languageSelector">
+        <option value="vi">Tiếng Việt</option>
+        <option value="en">English</option>
+        <option value="fr">Français</option>
+        <option value="ja">日本語</option>
+        </select>
+</div>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1 data-translate-key="hero_title">Học tập mọi lúc, mọi nơi. Phát triển kỹ năng cho tương lai.</h1>
+            <p data-translate-key="hero_subtitle">Tham gia cộng đồng học tập toàn cầu và khám phá hàng ngàn khóa học chất lượng cao.</p>
+            <div class="search-bar">
+                <input type="text" id="searchCourseInput" placeholder="Tìm kiếm khóa học..." data-translate-key="search_placeholder">
+                <button type="submit" data-translate-key="search_button">Tìm kiếm</button>
+            </div>
+            <div class="hero-features">
+                <div><i class="fas fa-calendar-alt"></i> <span data-translate-key="feature_flexible">Học tập linh hoạt</span></div>
+                <div><i class="fas fa-chalkboard-teacher"></i> <span data-translate-key="feature_instructors">Giảng viên hàng đầu</span></div>
+                <div><i class="fas fa-users"></i> <span data-translate-key="feature_community">Cộng đồng hỗ trợ</span></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="international-courses">
+        <div class="container">
+            <h2 data-translate-key="section_global_knowledge_title">Khám Phá Tri Thức Toàn Cầu</h2>
+            <div class="horizontal-slider-container">
+                <button class="slider-nav-btn prev-btn" aria-label="Previous Courses"><i class="fas fa-chevron-left"></i></button>
+                <div class="courses-slider">
+                    <div class="slider-track">
+                        <div class="course-card horizontal">
+                            <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8Y29kaW5nfGVufDB8fDB8fHww&auto=format&fit=crop&w=280&h=160&q=60" alt="Advanced Python Course">
+                            <div class="course-info">
+                                <h3 data-translate-key="h_course1_title">Advanced Python (Mỹ)</h3>
+                                <p class="course-theme" data-translate-key="h_course1_theme">Lập trình, AI</p>
+                                <p class="course-instructor" data-translate-key="h_course1_instructor">TS. Evelyn Reed</p>
+                                <span class="course-origin-flag">🇺🇸</span>
+                            </div>
+                            <a href="#" class="button" data-translate-key="view_details_button">Xem Chi Tiết</a>
+                        </div>
+
+                        <div class="course-card horizontal">
+                            <img src="https://images.unsplash.com/photo-1457369804613-52c61a468e7d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8cGhpbG9zb3BoeSUyMGJvb2tzfGVufDB8fDB8fHww&auto=format&fit=crop&w=280&h=160&q=60" alt="Existential Philosophy Course">
+                            <div class="course-info">
+                                <h3 data-translate-key="h_course2_title">Triết Học Hiện Sinh (Đức)</h3>
+                                <p class="course-theme" data-translate-key="h_course2_theme">Triết học, Hiện đại</p>
+                                <p class="course-instructor" data-translate-key="h_course2_instructor">GS. Klaus Richter</p>
+                                <span class="course-origin-flag">🇩🇪</span>
+                            </div>
+                            <a href="#" class="button" data-translate-key="view_details_button">Xem Chi Tiết</a>
+                        </div>
+
+                        <div class="course-card horizontal">
+                            <img src="https://images.unsplash.com/photo-1509228468518-180dd4864904?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YWJzdHJhY3QlMjBtYXRofGVufDB8fDB8fHww&auto=format&fit=crop&w=280&h=160&q=60" alt="Abstract Algebra Course">
+                            <div class="course-info">
+                                <h3 data-translate-key="h_course3_title">Đại Số Trừu Tượng (Nga)</h3>
+                                <p class="course-theme" data-translate-key="h_course3_theme">Toán học, Lý thuyết</p>
+                                <p class="course-instructor" data-translate-key="h_course3_instructor">TS. Anya Petrova</p>
+                                <span class="course-origin-flag">🇷🇺</span>
+                            </div>
+                            <a href="#" class="button" data-translate-key="view_details_button">Xem Chi Tiết</a>
+                        </div>
+
+                        <div class="course-card horizontal">
+                            <img src="https://th.bing.com/th/id/OIP.6gpqqoAKWU1Ck9EQN2SI6AHaHa?w=180&h=180&c=7&r=0&o=5&pid=1.7" alt="Course Image"> <div class="course-info">
+                                <h3 data-translate-key="h_course4_title">Toán Học Ấn Độ Cổ (Ấn Độ)</h3>
+                                <p class="course-theme" data-translate-key="h_course4_theme">Toán học, Lịch sử</p>
+                                <p class="course-instructor" data-translate-key="h_course4_instructor">GS. Rohan Sharma</p>
+                                <span class="course-origin-flag">🇮🇳</span>
+                            </div>
+                            <a href="#" class="button" data-translate-key="view_details_button">Xem Chi Tiết</a>
+                        </div>
+                        
+                        <div class="course-card horizontal">
+                            <img src="https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cGhpbG9zb3BoeSUyMGJvb2tzfGVufDB8fDB8fHww&auto=format&fit=crop&w=280&h=180&q=60" alt="Number Theory Course">
+                            <div class="course-info">
+                                <h3 data-translate-key="h_course10_title">Lý Thuyết Số (Đức)</h3>
+                                <p class="course-theme" data-translate-key="h_course10_theme">Toán học, Thuần túy</p>
+                                <p class="course-instructor" data-translate-key="h_course10_instructor">GS. Sofia Muller</p>
+                                <span class="course-origin-flag">🇩🇪</span>
+                            </div>
+                            <a href="#" class="button" data-translate-key="view_details_button">Xem Chi Tiết</a>
+                        </div>
+                    </div>
+                </div>
+                <button class="slider-nav-btn next-btn" aria-label="Next Courses"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
+    </section>
+
+    <section class="featured-courses">
+        <div class="container">
+            <h2 data-translate-key="featured_courses_title">Khóa học nổi bật</h2>
+            <div class="course-grid">
+                <div class="course-card">
+                    <img src="https://miro.medium.com/v2/resize:fit:940/1*UXqY071M-ia-DsFeJyk_bA.png" alt="Lập trình Python cơ bản">
+                    <h3 data-translate-key="course1_title">Lập trình Python cơ bản</h3>
+                    <p data-translate-key="course1_desc">Tìm hiểu các nguyên tắc cơ bản của ngôn ngữ lập trình Python.</p>
+                    <div class="instructor" >Giảng viên: Nguyễn Văn Thắng</div>
+                    <a href="#" class="button" data-translate-key="view_details_button">Xem chi tiết</a>
+                </div>
+
+                <div class="course-card">
+                    <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8Z3JhcGhpYyUyMGRlc2lnbnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=300&q=60" alt="Thiết kế đồ họa với Photoshop">
+                    <h3 data-translate-key="course2_title">Thiết kế đồ họa với Photoshop</h3>
+                    <p data-translate-key="course2_desc">Nắm vững các công cụ và kỹ thuật thiết kế đồ họa chuyên nghiệp.</p>
+                    <div class="instructor" >Giảng viên: Trần Thị Bình</div>
+                    <a href="#" class="button" data-translate-key="view_details_button">Xem chi tiết</a>
+                </div>
+                </div>
+        </div>
+    </section>
+
+    <section class="completion-focus">
+        <div class="container">
+            <h2 data-translate-key="completion_focus_title">Tập trung vào sự thành công của bạn</h2>
+            <div class="focus-grid">
+                <div class="focus-item">
+                    <i class="fas fa-route"></i>
+                    <h3 data-translate-key="focus_personalized_path_title">Lộ trình học tập cá nhân hóa</h3>
+                    <p data-translate-key="focus_personalized_path_desc">Hệ thống gợi ý khóa học phù hợp với mục tiêu và trình độ của bạn.</p>
+                </div>
+                <div class="focus-item">
+                    <i class="fas fa-chart-line"></i>
+                    <h3 data-translate-key="focus_progress_tracking_title">Theo dõi tiến độ trực quan</h3>
+                    <p data-translate-key="focus_progress_tracking_desc">Dễ dàng theo dõi quá trình học tập và nhận biết những phần cần cải thiện.</p>
+                </div>
+                <div class="focus-item">
+                    <i class="fas fa-bell"></i>
+                    <h3 data-translate-key="focus_reminders_title">Nhắc nhở và động viên</h3>
+                    <p data-translate-key="focus_reminders_desc">Nhận thông báo về lịch học, bài tập và lời động viên để duy trì động lực.</p>
+                </div>
+                <div class="focus-item">
+                    <i class="fas fa-puzzle-piece"></i>
+                    <h3 data-translate-key="focus_practical_exercises_title">Bài tập thực hành và dự án</h3>
+                    <p data-translate-key="focus_practical_exercises_desc">Áp dụng kiến thức vào thực tế thông qua các bài tập và dự án hấp dẫn.</p>
+                </div>
+                <div class="focus-item">
+                    <i class="fas fa-comments"></i>
+                    <h3 data-translate-key="focus_community_support_title">Tương tác và hỗ trợ từ cộng đồng</h3>
+                    <p data-translate-key="focus_community_support_desc">Tham gia diễn đàn, trao đổi với bạn học và nhận hỗ trợ từ giảng viên.</p>
+                </div>
+                <div class="focus-item">
+                    <i class="fas fa-certificate"></i>
+                    <h3 data-translate-key="focus_certificates_title">Chứng chỉ hoàn thành khóa học</h3>
+                    <p data-translate-key="focus_certificates_desc">Nhận chứng chỉ có giá trị sau khi hoàn thành khóa học thành công.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials">
+        <div class="container">
+            <h2 data-translate-key="testimonials_title">Học viên nói gì?</h2>
+            <div class="testimonial-slider-container">
+                <div class="testimonial-slider">
+                    <div class="testimonial">
+                        <p data-translate-key="testimonial1_text">"Tôi rất hài lòng với các khóa học trên nền tảng này. Nội dung chất lượng, giảng viên nhiệt tình và cộng đồng học tập rất hỗ trợ."</p>
+                        <div class="author" >- Nguyễn Thị Bích</div>
+                    </div>
+                    <div class="testimonial">
+                        <p data-translate-key="testimonial2_text">"Nhờ có lộ trình học tập cá nhân hóa, tôi đã tìm được những khóa học phù hợp với nhu cầu của mình và hoàn thành chúng một cách hiệu quả."</p>
+                        <div class="author" >- Phạm Văn Nam</div>
+                    </div>
+                    <div class="testimonial">
+                        <p data-translate-key="testimonial3_text">"Các bài tập thực hành rất hữu ích, giúp tôi củng cố kiến thức và áp dụng vào công việc thực tế."</p>
+                        <div class="author" >- Hoàng Gia Vinh</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="call-to-action">
+        <div class="container">
+            <h2 data-translate-key="cta_title">Sẵn sàng để bắt đầu hành trình học tập của bạn?</h2>
+            <p data-translate-key="cta_subtitle">Đăng ký ngay hôm nay và khám phá thế giới kiến thức!</p>
+            <a href="#" class="button cta-button" id="registerBtnCallToAction" data-translate-key="cta_join_now_button">Tham gia ngay</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p data-translate-key="footer_copyright">&copy; By ThunderBolt 45</p>
+            <ul>
+                <li><a href="#" data-translate-key="footer_terms">Điều khoản dịch vụ</a></li>
+                <li><a href="#" data-translate-key="footer_privacy">Chính sách bảo mật</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" id="closeLoginModal">&times;</span>
+            <h2 data-translate-key="login_modal_title">Đăng nhập</h2>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="loginEmail" data-translate-key="form_email_label">Email:</label>
+                    <input type="email" id="loginEmail" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword" data-translate-key="form_password_label">Mật khẩu:</label>
+                    <input type="password" id="loginPassword" name="password" required>
+                </div>
+                <button type="submit" class="button" data-translate-key="login_button">Đăng nhập</button>
+                <p class="switch-form"><span data-translate-key="login_no_account">Chưa có tài khoản?</span> <a href="#" id="showRegisterModalFromLogin" data-translate-key="register_now_link">Đăng ký ngay</a></p>
+            </form>
+        </div>
+    </div>
+
+    <div id="registerModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" id="closeRegisterModal">&times;</span>
+            <h2 data-translate-key="register_modal_title">Đăng ký tài khoản</h2>
+            <form id="registerForm">
+                <div class="form-group">
+                    <label for="registerName" data-translate-key="form_name_label">Họ và tên:</label>
+                    <input type="text" id="registerName" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="registerEmail" data-translate-key="form_email_label">Email:</label>
+                    <input type="email" id="registerEmail" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="registerPassword" data-translate-key="form_password_label">Mật khẩu:</label>
+                    <input type="password" id="registerPassword" name="password" required>
+                </div>
+                <div class="form-group">
+                    <label for="registerConfirmPassword" data-translate-key="form_confirm_password_label">Xác nhận mật khẩu:</label>
+                    <input type="password" id="registerConfirmPassword" name="confirmPassword" required>
+                </div>
+                <button type="submit" class="button" data-translate-key="register_button">Đăng ký</button>
+                <p class="switch-form"><span data-translate-key="register_have_account">Đã có tài khoản?</span> <a href="#" id="showLoginModalFromRegister" data-translate-key="login_now_link">Đăng nhập</a></p>
+            </form>
+        </div>
+    </div>
+
+    <div id="aiChatbotButton">
+        <i class="fas fa-robot"></i>
+    </div>
+
+    <div id="aiChatbotWindow">
+        <div id="chatbotHeader">
+            <span data-translate-key="chatbot_title">AI Assistant</span>
+            <button id="closeChatbotBtn">&times;</button>
+        </div>
+        <div id="chatbotMessages">
+            </div>
+        <div id="chatbotInputArea">
+            <input type="text" id="chatbotInput" placeholder="Type your message..." data-translate-key="chatbot_placeholder_type_message">
+            <button id="sendChatbotMessageBtn" class="button" data-translate-key="chatbot_send_button">Gửi</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

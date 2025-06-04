@@ -1,0 +1,1047 @@
+/* Reset cơ bản và Biến màu */
+:root {
+    --primary-color: #1ABC9C; /* Màu xanh ngọc (Turquoise) - tươi mới, năng động */
+    --secondary-color: #2C3E50; /* Màu xanh đậm (Midnight Blue) - chuyên nghiệp, tin cậy */
+    --accent-color: #F39C12; /* Màu cam (Orange) - nổi bật cho CTA */
+    --light-gray-color: #f8f9fa; /* Màu xám rất nhạt cho nền */
+    --medium-gray-color: #ecf0f1; /* Màu xám nhạt hơn */
+    --dark-gray-color: #7f8c8d; /* Màu xám cho text phụ */
+    --text-color: #34495e; /* Màu chữ chính (Dark Blue/Gray) */
+    --white-color: #ffffff;
+    --success-color: #2ECC71;
+    --error-color: #E74C3C;
+
+    --font-primary: 'Poppins', sans-serif;
+    --font-secondary: 'Open Sans', sans-serif;
+
+    --border-radius-sm: 4px;
+    --border-radius-md: 8px;
+    --box-shadow-light: 0 4px 15px rgba(0, 0, 0, 0.08);
+    --box-shadow-medium: 0 6px 20px rgba(0, 0, 0, 0.12);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-secondary);
+    line-height: 1.7;
+    background-color: var(--white-color); /* Nền trắng chủ đạo cho sự sạch sẽ */
+    color: var(--text-color);
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* --- Header --- */
+header {
+    background-color: var(--white-color);
+    padding: 20px 0;
+    border-bottom: 1px solid var(--medium-gray-color);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    position: sticky; /* Giữ header khi cuộn */
+    top: 0;
+    z-index: 999;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-family: var(--font-primary);
+    font-size: 25px;
+    font-weight: 700;
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+}
+
+nav ul li {
+    margin-left: 25px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: var(--secondary-color);
+    font-family: var(--font-primary);
+    font-weight: 500;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+    position: relative;
+    padding-bottom: 5px; /* Tạo không gian cho gạch chân */
+}
+
+nav ul li a::after { /* Hiệu ứng gạch chân khi hover */
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--primary-color);
+    transition: width 0.3s ease;
+}
+
+nav ul li a:hover,
+nav ul li a.active { /* Giả sử có class active cho trang hiện tại */
+    color: var(--primary-color);
+}
+
+nav ul li a:hover::after {
+    width: 100%;
+}
+
+nav ul li.cta a {
+    background-color: var(--accent-color);
+    color: var(--white-color);
+    padding: 10px 20px;
+    border-radius: var(--border-radius-sm);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+nav ul li.cta a:hover {
+    background-color: #e68a00; /* Darken accent color */
+    color: var(--white-color); /* Đảm bảo màu chữ không bị ảnh hưởng bởi a:hover::after */
+    transform: translateY(-2px);
+}
+nav ul li.cta a::after { /* Bỏ gạch chân cho nút CTA */
+    display: none;
+}
+
+.language-switcher select {
+    padding: 8px 12px;
+    border-radius: var(--border-radius-sm);
+    border: 1px solid #ccc;
+    background-color: var(--white-color);
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-family: var(--font-secondary);
+    margin-left: 20px;
+    transition: border-color 0.3s ease;
+}
+
+.language-switcher select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+/* --- Hero Section --- */
+.hero {
+    background: linear-gradient(135deg, var(--primary-color) 0%, #16a085 100%); /* Gradient nền */
+    color: var(--white-color);
+    padding: 100px 0;
+    text-align: center;
+    position: relative; /* Cho các hiệu ứng animation nếu có */
+}
+
+.hero h1 {
+    font-family: var(--font-primary);
+    font-size: 3.2rem; /* Tăng kích thước một chút */
+    font-weight: 700;
+    margin-bottom: 25px;
+    line-height: 1.3;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
+
+.hero p {
+    font-size: 1.25rem;
+    margin-bottom: 40px;
+    opacity: 0.9;
+    font-weight: 400;
+}
+
+.search-bar {
+    display: flex;
+    max-width: 600px;
+    margin: 0 auto 40px;
+    border-radius: var(--border-radius-md);
+    overflow: hidden; /* Để bo góc cho cả input và button */
+    box-shadow: var(--box-shadow-medium);
+}
+
+.search-bar input {
+    flex-grow: 1;
+    padding: 15px 20px;
+    border: none;
+    font-size: 1rem;
+    font-family: var(--font-secondary);
+}
+.search-bar input:focus {
+    outline: none;
+}
+
+.search-bar button {
+    background-color: var(--accent-color);
+    color: var(--white-color);
+    border: none;
+    padding: 15px 25px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-family: var(--font-primary);
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+}
+
+.search-bar button:hover {
+    background-color: #e68a00; /* Darken accent color */
+}
+
+.hero-features {
+    display: flex;
+    justify-content: center;
+    gap: 40px; /* Tăng khoảng cách */
+    margin-top: 50px;
+}
+
+.hero-features div {
+    display: flex;
+    align-items: center;
+    font-size: 1.1rem;
+    font-family: var(--font-primary);
+    font-weight: 500;
+}
+
+.hero-features i {
+    margin-right: 12px;
+    font-size: 1.8rem; /* Icon to hơn */
+    opacity: 0.8;
+}
+
+/* --- General Button Style --- */
+.button {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    text-decoration: none;
+    padding: 12px 25px;
+    border-radius: var(--border-radius-sm);
+    font-family: var(--font-primary);
+    font-weight: 500;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: #16a085; /* Darken primary color */
+    transform: translateY(-2px);
+    box-shadow: var(--box-shadow-light);
+}
+
+.button.cta-button { /* Nút CTA chính */
+    background-color: var(--accent-color);
+    font-size: 1.2rem;
+    padding: 15px 30px;
+}
+.button.cta-button:hover {
+    background-color: #e68a00; /* Darken accent */
+}
+
+
+/* --- Featured Courses Section --- */
+.featured-courses {
+    padding: 80px 0;
+    background-color: var(--light-gray-color); /* Nền xám nhạt cho section này */
+}
+
+.featured-courses h2,
+.completion-focus h2,
+.testimonials h2,
+.international-courses h2 { /* Style chung cho tiêu đề section */
+    font-family: var(--font-primary);
+    font-size: 2.8rem;
+    text-align: center;
+    margin-bottom: 50px;
+    color: var(--secondary-color);
+    position: relative;
+    padding-bottom: 15px;
+}
+/* Gạch chân trang trí cho tiêu đề section */
+.featured-courses h2::after,
+.completion-focus h2::after,
+.testimonials h2::after,
+.international-courses h2::after {
+    content: '';
+    position: absolute;
+    width: 80px;
+    height: 3px;
+    background-color: var(--primary-color);
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 2px;
+}
+
+
+.course-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Điều chỉnh minmax cho card rộng hơn chút */
+    gap: 30px;
+}
+
+.course-card {
+    background-color: var(--white-color);
+    border-radius: var(--border-radius-md);
+    overflow: hidden;
+    box-shadow: var(--box-shadow-light);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex; /* Giúp footer button luôn ở dưới */
+    flex-direction: column;
+}
+
+.course-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--box-shadow-medium);
+}
+
+.course-card img {
+    width: 100%;
+    height: 200px; /* Chiều cao cố định cho ảnh */
+    object-fit: cover; /* Đảm bảo ảnh vừa vặn mà không bị méo */
+    display: block;
+}
+
+.course-card h3 {
+    padding: 20px 20px 10px;
+    margin: 0;
+    font-family: var(--font-primary);
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--secondary-color);
+    line-height: 1.4;
+}
+
+.course-card p {
+    padding: 0 20px 15px;
+    margin: 0;
+    color: var(--text-color);
+    font-size: 0.95rem;
+    flex-grow: 1; /* Để p chiếm không gian còn lại, đẩy button xuống */
+}
+
+.course-card .instructor {
+    padding: 0 20px 15px;
+    font-size: 0.9rem;
+    color: var(--dark-gray-color);
+    font-style: italic;
+}
+
+.course-card .button { /* Button trong card */
+    display: block;
+    margin: 0 20px 20px; /* Tạo khoảng cách */
+    text-align: center;
+}
+
+/* --- International Courses Section --- */
+.international-courses {
+    padding: 60px 0;
+    background-color: var(--white-color);
+}
+
+.horizontal-slider-container {
+    position: relative;
+    width: 100%;
+    padding: 0 50px; 
+    box-sizing: border-box;
+}
+
+.courses-slider {
+    width: 100%;
+    overflow: hidden; 
+}
+
+.slider-track {
+    display: flex; 
+    transition: transform 0.5s ease-in-out; 
+}
+
+.course-card.horizontal {
+    flex: 0 0 280px; 
+    margin-right: 20px; 
+    background-color: var(--white-color);
+    border-radius: var(--border-radius-md);
+    overflow: hidden;
+    box-shadow: var(--box-shadow-light);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    position: relative; 
+}
+.course-card.horizontal:last-child {
+    margin-right: 0;
+}
+
+.course-card.horizontal:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--box-shadow-medium);
+}
+
+.course-card.horizontal img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+}
+
+.course-card.horizontal .course-info {
+    padding: 15px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column; 
+}
+
+.course-card.horizontal .course-info h3 {
+    font-family: var(--font-primary);
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--secondary-color);
+    margin-bottom: 8px;
+    line-height: 1.3;
+}
+
+.course-card.horizontal .course-theme {
+    font-size: 0.85rem;
+    color: var(--dark-gray-color);
+    margin-bottom: 5px;
+}
+
+.course-card.horizontal .course-instructor {
+    font-size: 0.8rem;
+    color: var(--text-color);
+    font-style: italic;
+    margin-bottom: 10px; 
+    flex-grow: 1; 
+}
+
+.course-card.horizontal .course-origin-flag {
+    font-size: 1.2rem;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: rgba(255, 255, 255, 0.8); 
+    padding: 2px 5px;
+    border-radius: 3px;
+    line-height: 1; 
+}
+
+
+.course-card.horizontal .button { 
+    display: block; 
+    margin-top: auto; 
+    padding: 8px 15px;
+    font-size: 0.9rem;
+    text-align: center;
+    width: calc(100% - 30px); 
+    margin-left: 15px; 
+    margin-right: 15px;
+    margin-bottom: 15px; 
+}
+
+.slider-nav-btn {
+    position: absolute;
+    top: calc(50% - 20px); 
+    transform: translateY(-50%); 
+    background-color: rgba(255, 255, 255, 0.9);
+    border: 1px solid var(--medium-gray-color);
+    color: var(--secondary-color);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.slider-nav-btn:hover {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    box-shadow: var(--box-shadow-light);
+}
+
+.slider-nav-btn.prev-btn {
+    left: 10px;
+}
+
+.slider-nav-btn.next-btn {
+    right: 10px;
+}
+
+.slider-nav-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    background-color: rgba(236, 240, 241, 0.7); 
+    color: var(--dark-gray-color);
+}
+
+/* --- Completion Focus Section --- */
+.completion-focus {
+    padding: 80px 0;
+    background-color: var(--white-color);
+}
+
+.focus-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.focus-item {
+    background-color: var(--light-gray-color);
+    padding: 35px 30px;
+    border-radius: var(--border-radius-md);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid transparent; /* Thêm border để hover đẹp hơn */
+}
+
+.focus-item:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--box-shadow-light);
+    border-color: var(--primary-color);
+    background-color: var(--white-color);
+}
+
+.focus-item i {
+    font-size: 2.8rem; /* Icon to hơn */
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    transition: transform 0.3s ease;
+}
+.focus-item:hover i {
+    transform: scale(1.1);
+}
+
+.focus-item h3 {
+    font-family: var(--font-primary);
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: var(--secondary-color);
+}
+
+.focus-item p {
+    color: var(--text-color);
+    font-size: 0.95rem;
+}
+
+/* --- Testimonials Section --- */
+.testimonials {
+    padding: 80px 0;
+    background-color: var(--medium-gray-color); /* Màu nền khác biệt */
+}
+
+.testimonial-slider-container {
+    overflow: hidden;
+    position: relative;
+    max-width: 800px; /* Giới hạn chiều rộng slider */
+    margin: 0 auto;
+}
+
+.testimonial-slider {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.testimonial {
+    min-width: 100%;
+    box-sizing: border-box;
+    padding: 40px; /* Tăng padding */
+    background-color: var(--white-color);
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--box-shadow-light);
+    text-align: center;
+}
+
+.testimonial p {
+    font-style: italic;
+    color: var(--text-color);
+    font-size: 1.1rem; /* Tăng kích thước chữ */
+    margin-bottom: 20px;
+    line-height: 1.8;
+}
+
+.testimonial .author {
+    font-weight: 600;
+    color: var(--secondary-color);
+    font-family: var(--font-primary);
+    font-size: 1rem;
+}
+.testimonial .author::before { /* Thêm dấu gạch ngang trước tên */
+    content: "— ";
+}
+
+/* --- Call to Action Section --- */
+.call-to-action {
+    padding: 80px 0;
+    background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZWR1Y2F0aW9ufGVufDB8fDB8fHww&auto=format&fit=crop&w=1200&q=60'); /* Thêm ảnh nền */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Hiệu ứng parallax nhẹ */
+    color: var(--white-color);
+    text-align: center;
+}
+
+.call-to-action h2 {
+    font-family: var(--font-primary);
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+}
+
+.call-to-action p {
+    font-size: 1.25rem;
+    margin-bottom: 40px;
+    opacity: 0.9;
+}
+
+
+/* --- Footer --- */
+footer {
+    background-color: var(--secondary-color);
+    color: var(--medium-gray-color); /* Chữ xám nhạt trên nền đậm */
+    padding: 50px 0;
+    text-align: center;
+    font-size: 0.95rem;
+}
+
+footer .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* Cho responsive */
+}
+
+footer p {
+    margin-bottom: 10px; /* Cho responsive */
+}
+
+footer ul {
+    list-style: none;
+    display: flex;
+}
+
+footer ul li {
+    margin-left: 20px;
+}
+
+footer ul li a {
+    color: var(--medium-gray-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+footer ul li a:hover {
+    color: var(--primary-color);
+}
+
+
+/* --- Modal Styles --- */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.7); /* Nền mờ đậm hơn */
+    padding-top: 5vh; /* Đẩy modal xuống chút */
+}
+
+.modal-content {
+    background-color: var(--white-color);
+    margin: 5% auto;
+    padding: 35px 40px; /* Tăng padding */
+    border: none; /* Bỏ border, dùng shadow */
+    width: 90%;
+    max-width: 500px;
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--box-shadow-medium);
+    position: relative;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+}
+
+@keyframes animatetop {
+  from {top: -100px; opacity: 0}
+  to {top: 0; opacity: 1}
+}
+
+.close-btn {
+    color: var(--dark-gray-color);
+    position: absolute; /* Đặt vị trí chính xác hơn */
+    top: 15px;
+    right: 20px;
+    font-size: 32px;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    color: var(--text-color);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-family: var(--font-primary);
+    color: var(--secondary-color);
+    font-size: 1.8rem;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600; /* Chữ đậm hơn */
+    color: var(--secondary-color);
+    font-family: var(--font-secondary);
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="password"] {
+    width: 100%; /* Input chiếm toàn bộ chiều rộng */
+    padding: 12px 15px;
+    border: 1px solid #ccc;
+    border-radius: var(--border-radius-sm);
+    font-size: 1rem;
+    font-family: var(--font-secondary);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="email"]:focus,
+.form-group input[type="password"]:focus {
+    border-color: var(--primary-color);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(26, 188, 156, 0.2); /* Hiệu ứng focus đẹp hơn */
+}
+
+.modal .button { /* Button trong modal */
+    width: 100%;
+    padding: 14px 20px; /* Button to hơn */
+    font-size: 1.1rem;
+    margin-top: 15px;
+}
+
+.switch-form {
+    text-align: center;
+    margin-top: 25px;
+    font-size: 0.95rem;
+}
+
+.switch-form a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.switch-form a:hover {
+    text-decoration: underline;
+}
+
+/* --- Animation cho các section khi cuộn (tùy chọn) --- */
+.featured-courses, .completion-focus, .testimonials, .call-to-action, .international-courses {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.featured-courses.visible,
+.completion-focus.visible,
+.testimonials.visible,
+.call-to-action.visible,
+.international-courses.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* --- AI Chatbot Styles --- */
+#aiChatbotButton {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    cursor: pointer;
+    box-shadow: var(--box-shadow-medium);
+    z-index: 1000;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#aiChatbotButton:hover {
+    background-color: #16a085; /* Darken primary color */
+    transform: scale(1.1);
+}
+
+#aiChatbotWindow {
+    display: none; /* Hidden by default */
+    position: fixed;
+    bottom: 90px; /* Above the button */
+    right: 20px;
+    width: 350px;
+    height: 500px;
+    background-color: var(--white-color);
+    border-radius: var(--border-radius-md);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    display: flex; /* Changed to flex for initial state management in JS */
+    flex-direction: column;
+    z-index: 1001;
+    overflow: hidden; /* Prevents content from spilling */
+}
+
+#chatbotHeader {
+    background-color: var(--secondary-color);
+    color: var(--white-color);
+    padding: 12px 15px;
+    border-top-left-radius: var(--border-radius-md);
+    border-top-right-radius: var(--border-radius-md);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: var(--font-primary);
+    font-weight: 600;
+}
+
+#closeChatbotBtn {
+    background: none;
+    border: none;
+    color: var(--white-color);
+    font-size: 1.5em;
+    cursor: pointer;
+    padding: 0 5px;
+    line-height: 1;
+}
+#closeChatbotBtn:hover {
+    opacity: 0.8;
+}
+
+#chatbotMessages {
+    flex-grow: 1;
+    padding: 15px;
+    overflow-y: auto;
+    background-color: var(--light-gray-color);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#chatbotMessages .message {
+    padding: 10px 12px;
+    border-radius: var(--border-radius-sm);
+    max-width: 80%;
+    line-height: 1.4;
+    word-wrap: break-word;
+}
+
+#chatbotMessages .message.user {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    align-self: flex-end;
+    border-bottom-right-radius: 0; /* "Tail" for user message */
+}
+
+#chatbotMessages .message.bot {
+    background-color: var(--medium-gray-color);
+    color: var(--text-color);
+    align-self: flex-start;
+    border-bottom-left-radius: 0; /* "Tail" for bot message */
+}
+
+
+#chatbotInputArea {
+    padding: 15px;
+    border-top: 1px solid var(--medium-gray-color);
+    display: flex;
+    gap: 10px;
+    background-color: var(--white-color);
+}
+
+#chatbotInput {
+    flex-grow: 1;
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    border-radius: var(--border-radius-sm);
+    font-size: 0.95rem;
+    font-family: var(--font-secondary);
+}
+#chatbotInput:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(26, 188, 156, 0.2);
+}
+
+#sendChatbotMessageBtn {
+    padding: 10px 15px;
+    font-size: 0.95rem;
+    min-width: 70px; /* Ensure button has a decent width */
+}
+
+
+/* --- Responsive Design --- */
+@media (max-width: 992px) {
+    .hero h1 {
+        font-size: 2.8rem;
+    }
+    .hero p {
+        font-size: 1.15rem;
+    }
+    .featured-courses h2,
+    .completion-focus h2,
+    .testimonials h2,
+    .call-to-action h2,
+    .international-courses h2 {
+        font-size: 2.4rem;
+    }
+    header .container {
+        /* flex-wrap: wrap; Allow more space before wrapping nav */
+    }
+    /* nav { width: 100%; margin-bottom: 10px; } */
+    /* nav ul { justify-content: center; flex-wrap: wrap; } */
+    /* nav ul li { margin: 5px 10px; } */
+    /* .language-switcher { margin: 10px auto 0; } */
+}
+
+@media (max-width: 1194px) {
+    header .container {
+        flex-direction: column;
+        align-items: center; 
+    }
+    .logo {
+        margin-bottom: 15px;
+    }
+    nav {
+        width: 100%;
+    }
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        padding-left: 0;
+    }
+    nav ul li {
+        margin: 10px 0;
+        width: 100%;
+        text-align: center;
+    }
+    nav ul li a, nav ul li.cta a {
+        display: block; /* Make links take full width */
+        padding: 10px;
+    }
+     nav ul li.cta a {
+        margin: 0 15px; /* Add some horizontal margin for CTA on mobile */
+     }
+
+
+    .language-switcher {
+        margin-top: 15px;
+    }
+    .hero h1 {
+        font-size: 2.2rem;
+    }
+    .hero p {
+        font-size: 1rem;
+    }
+    .hero-features {
+        flex-direction: column;
+        gap: 20px;
+    }
+    .course-grid, .focus-grid {
+        grid-template-columns: 1fr; /* 1 cột trên mobile */
+    }
+    footer .container {
+        flex-direction: column;
+    }
+    footer ul {
+        margin-top: 15px;
+        justify-content: center;
+        padding-left: 0;
+    }
+    .call-to-action h2 {
+        font-size: 2.5rem;
+    }
+    .international-courses h2 {
+        font-size: 2.2rem;
+    }
+    .horizontal-slider-container {
+        padding: 0 40px; 
+    }
+    .slider-nav-btn {
+        width: 35px;
+        height: 35px;
+        font-size: 1rem;
+        top: calc(50% - 10px); 
+    }
+    .slider-nav-btn.prev-btn {
+        left: 5px;
+    }
+    .slider-nav-btn.next-btn {
+        right: 5px;
+    }
+    .course-card.horizontal {
+        flex: 0 0 250px; 
+    }
+    #aiChatbotWindow {
+        width: calc(100% - 40px); /* Full width on small screens, minus some padding */
+        height: 70vh;
+        bottom: 20px; /* Directly on bottom, button might be hidden or placed elsewhere */
+        right: 20px;
+        left:20px; /* Center it somewhat */
+    }
+    #aiChatbotButton {
+        bottom: 10px;
+        right: 10px;
+        width: 50px;
+        height: 50px;
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .international-courses h2 {
+        font-size: 2rem;
+    }
+    .course-card.horizontal {
+        flex: 0 0 220px; 
+    }
+    .slider-nav-btn {
+       top: calc(50% - 5px); 
+    }
+}
