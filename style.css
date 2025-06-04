@@ -99,6 +99,13 @@ nav ul li a::after { /* Hiệu ứng gạch chân khi hover */
     background-color: var(--primary-color);
     transition: width 0.3s ease;
 }
+.menu-toggle {
+    display: none; /* Hidden by default on larger screens */
+    font-size: 1.8rem;
+    color: var(--secondary-color);
+    cursor: pointer;
+    margin-left: 20px;
+}
 
 nav ul li a:hover,
 nav ul li a.active { /* Giả sử có class active cho trang hiện tại */
@@ -941,15 +948,32 @@ footer ul li a:hover {
 
 @media (max-width: 1194px) {
     header .container {
-        flex-direction: column;
-        align-items: center; 
+        flex-direction: row; /* Keep logo, toggle, and switcher in a row */
+        justify-content: space-between;
+        align-items: center;
     }
     .logo {
-        margin-bottom: 15px;
+        margin-bottom: 0;
     }
+
     nav {
+        display: none; /* Hide nav by default on mobile */
+        flex-direction: column;
         width: 100%;
+        position: absolute;
+        top: 80px; /* Adjust based on header height */
+        left: 0;
+        background-color: var(--white-color);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        padding: 20px 0;
+        border-top: 1px solid var(--medium-gray-color);
+        z-index: 998;
     }
+
+    nav.active {
+        display: flex; /* Show nav when active */
+    }
+
     nav ul {
         flex-direction: column;
         align-items: center;
@@ -958,79 +982,34 @@ footer ul li a:hover {
     }
     nav ul li {
         margin: 10px 0;
-        width: 100%;
+        width: 90%; /* Adjust width for better appearance */
         text-align: center;
     }
-    nav ul li a, nav ul li.cta a {
-        display: block; /* Make links take full width */
-        padding: 10px;
+    nav ul li a {
+        display: block;
+        padding: 10px 15px;
+        border-radius: var(--border-radius-sm);
     }
-     nav ul li.cta a {
-        margin: 0 15px; /* Add some horizontal margin for CTA on mobile */
-     }
-
+    nav ul li.cta a {
+        margin: 0 auto; /* Center the CTA button */
+        max-width: 200px; /* Limit width of CTA button */
+    }
 
     .language-switcher {
-        margin-top: 15px;
+        display: none; /* Hide language switcher by default on mobile */
+        margin-top: 0; /* Reset margin */
+        margin-left: auto; /* Push to the right next to the toggle */
     }
-    .hero h1 {
-        font-size: 2.2rem;
+
+    .language-switcher.active {
+        display: block; /* Show language switcher when active */
+        position: absolute;
+        top: 10px; /* Position it correctly when open */
+        right: 70px; /* Adjust as needed */
     }
-    .hero p {
-        font-size: 1rem;
-    }
-    .hero-features {
-        flex-direction: column;
-        gap: 20px;
-    }
-    .course-grid, .focus-grid {
-        grid-template-columns: 1fr; /* 1 cột trên mobile */
-    }
-    footer .container {
-        flex-direction: column;
-    }
-    footer ul {
-        margin-top: 15px;
-        justify-content: center;
-        padding-left: 0;
-    }
-    .call-to-action h2 {
-        font-size: 2.5rem;
-    }
-    .international-courses h2 {
-        font-size: 2.2rem;
-    }
-    .horizontal-slider-container {
-        padding: 0 40px; 
-    }
-    .slider-nav-btn {
-        width: 35px;
-        height: 35px;
-        font-size: 1rem;
-        top: calc(50% - 10px); 
-    }
-    .slider-nav-btn.prev-btn {
-        left: 5px;
-    }
-    .slider-nav-btn.next-btn {
-        right: 5px;
-    }
-    .course-card.horizontal {
-        flex: 0 0 250px; 
-    }
-    #aiChatbotWindow {
-        width: calc(100% - 40px); /* Full width on small screens, minus some padding */
-        height: 70vh;
-        bottom: 20px; /* Directly on bottom, button might be hidden or placed elsewhere */
-        right: 20px;
-        left:20px; /* Center it somewhat */
-    }
-    #aiChatbotButton {
-        bottom: 10px;
-        right: 10px;
-        width: 50px;
-        height: 50px;
-        font-size: 1.5rem;
+
+    .menu-toggle {
+        display: block; /* Show hamburger icon on mobile */
     }
 }
 
