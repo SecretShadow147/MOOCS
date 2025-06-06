@@ -1,7 +1,23 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Đối tượng translations có thể dùng làm fallback hoặc cho các ngôn ngữ gốc (Anh, Việt)
+    // Mảng chứa các key có chứa thẻ HTML và cần được render bằng innerHTML
+    const keysForInnerHTML = [
+        'policy_intro',
+        'policy_plagiarism', 
+        'policy_exam_cheating', 
+        'policy_account_sharing', 
+        'policy_assisting_cheating',
+        'policy_measures_desc',
+        'policy_shuffling', 
+        'policy_webcam', 
+        'policy_tab_switching', 
+        'policy_anti_copy', 
+        'policy_time_limit',
+        'policy_permanent_ban'
+        // 'policy_proctoring' được xử lý riêng do có cấu trúc HTML đặc biệt (chứa <ul>)
+    ];
+
     const translations = {
-        en: { // Ngôn ngữ gốc - chứa tất cả các key và text gốc tiếng Anh
+        en: { // English translations
             page_title: "MOOCs Platform",
             nav_explore_courses: "Explore Courses",
             nav_instructors: "Instructors",
@@ -17,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function() {
             feature_community: "Supportive Community",
             
             section_global_knowledge_title: "Explore Global Knowledge",
-            h_course1_title: "Advanced Python (USA)", // Giữ lại các key cụ thể nếu có
+            h_course1_title: "Advanced Python (USA)",
             h_course2_title: "Existential Philosophy (Germany)",
             h_course3_title: "Abstract Algebra (Russia)",
             h_course4_title: "Ancient Indian Mathematics (India)",
@@ -97,9 +113,71 @@ document.addEventListener('DOMContentLoaded', function() {
             chatbot_response_default: "I am a mock AI. I received: ",
             chatbot_welcome: "Hello! How can I assist you today?",
             chatbot_greeting_response: "Hello there! How can I do for you?",
-            chatbot_course_inquiry_response: "You can find courses under 'Explore Courses' or use the search bar."
+            chatbot_course_inquiry_response: "You can find courses under 'Explore Courses' or use the search bar.",
+
+            // Keys for courses.html
+            courses_page_title: "Explore Courses - TB45.Courses",
+            sidebar_home: "Home",
+            sidebar_courses: "Courses",
+            sidebar_exam: "Exam",
+            sidebar_practice: "Practice",
+            sidebar_competition: "Competition",
+            sidebar_info: "Information",
+            sidebar_integrity: "Academic Integrity",
+            sidebar_toc: "Table of Contents",
+            sidebar_curriculum: "Curriculum",
+            sidebar_events: "Events",
+            sidebar_ranking: "Ranking",
+            filter_math: "Mathematics",
+            filter_literature: "Literature",
+            filter_physics: "Physics",
+            filter_chemistry: "Chemistry",
+            filter_architecture: "Architecture",
+            filter_geology: "Geology",
+            section_title_math: "Mathematics",
+            course_large_title: "Functions & Limits",
+            course_large_instructor: "Mrs. Mai Ha",
+            course_button_enter: "Enter Course",
+            course_soft_skills_title: "Soft Skills",
+            course_soft_skills_instructor: "Mrs. Ha Nguyen",
+            course_macroeconomics_title: "Macroeconomics",
+            course_macroeconomics_instructor: "Mr. Quoc Anh",
+            course_english_title: "English",
+            course_english_instructor: "Mr. James",
+            course_mexican_title: "Mexican Language",
+            course_mexican_instructor: "Mr. Rob",
+            course_button_coming_soon: "Coming Soon",
+            chatbot_header_title: "AI Assistant",
+            chatbot_input_placeholder: "Ask the AI assistant...",
+
+            // == UPDATED KEYS FOR ACADEMIC INTEGRITY POLICY ==
+            policy_page_title: "Academic Integrity Policy - TB45.Courses",
+            policy_back_button: "Back to Courses",
+            policy_main_heading: "Academic Integrity Policy",
+            policy_intro: "At <strong>TB45.Courses</strong>, we are committed to building a fair, transparent, and high-quality learning environment. Academic integrity is the foundation of the value of the knowledge and certificates you receive. To protect our learning community, we strictly enforce anti-cheating policies.",
+            policy_prohibited_heading: "Prohibited Actions",
+            policy_prohibited_desc: "The following behaviors are considered serious violations of the integrity policy and will be handled accordingly:",
+            policy_plagiarism: "<strong>Plagiarism:</strong> Copying assignments, ideas, or content from others without proper citation.",
+            policy_exam_cheating: "<strong>Cheating on exams:</strong> Using unauthorized materials, receiving help from others, or leaving the test screen without a valid reason.",
+            policy_account_sharing: "<strong>Sharing accounts:</strong> Allowing others to use your account to study or take tests on your behalf.",
+            policy_assisting_cheating: "<strong>Assisting in cheating:</strong> Helping others to commit fraudulent acts.",
+            policy_measures_heading: "Measures We Apply",
+            policy_measures_desc: "To maintain a fair learning environment, <strong>TB45.Courses</strong> uses advanced technologies to monitor and detect cheating:",
+            policy_shuffling: "<strong>Shuffling questions and answers:</strong> Exam questions are randomized so that each candidate has a unique set of questions and answer order.",
+            policy_proctoring: "<strong>Online Exam Proctoring:</strong> For important exams, we may require:", // This key is intentionally simple
+            policy_webcam: "<strong>Webcam Monitoring (Simulated):</strong> The system will monitor you via webcam to ensure no one else is in the exam room.",
+            policy_tab_switching: "<strong>Tab Switching Detection:</strong> The system will record and warn if you leave the exam window.",
+            policy_anti_copy: "<strong>Anti-Copy/Paste:</strong> You cannot copy question content or paste content from outside.",
+            policy_time_limit: "<strong>Strict Time Limits:</strong> Each exam has a specific time limit and will be submitted automatically when the time is up.",
+            policy_consequences_heading: "Consequences of Violation",
+            policy_consequences_desc: "Any violation of the integrity policy will be dealt with strictly, including but not limited to the following forms:",
+            policy_warning: "Receiving a warning (Maximum of 3 times in one exam).",
+            policy_nullify_test: "Cancellation of test or assignment results.",
+            policy_nullify_course: "Cancellation of the entire course result.",
+            policy_permanent_ban: "Permanent account suspension from <strong>TB45.Courses</strong>.",
+            policy_conclusion: "We believe that adhering to these rules will help enhance the learning value for yourself and the entire community. Thank you for your cooperation."
         },
-        vi: { // Bản dịch tiếng Việt
+        vi: { // Vietnamese translations
             page_title: "Nền tảng MOOCs",
             nav_explore_courses: "Khám phá khóa học",
             nav_instructors: "Giảng viên",
@@ -193,7 +271,69 @@ document.addEventListener('DOMContentLoaded', function() {
             chatbot_response_default: "Tôi là AI giả lập. Tôi đã nhận được: ",
             chatbot_welcome: "Xin chào! Tôi có thể hỗ trợ gì cho bạn hôm nay?",
             chatbot_greeting_response: "Chào bạn! Bạn cần hỗ trợ gì?",
-            chatbot_course_inquiry_response: "Bạn có thể tìm khóa học ở mục 'Khám phá khóa học' hoặc sử dụng thanh tìm kiếm."
+            chatbot_course_inquiry_response: "Bạn có thể tìm khóa học ở mục 'Khám phá khóa học' hoặc sử dụng thanh tìm kiếm.",
+
+            // Keys for courses.html
+            courses_page_title: "Khám Phá Khóa Học - TB45.Courses",
+            sidebar_home: "Trang Chủ",
+            sidebar_courses: "Khóa học",
+            sidebar_exam: "Bài Thi",
+            sidebar_practice: "Luyện tập",
+            sidebar_competition: "Thi Đấu",
+            sidebar_info: "Thông tin",
+            sidebar_integrity: "Liêm chính Học thuật",
+            sidebar_toc: "Mục lục",
+            sidebar_curriculum: "Giáo trình",
+            sidebar_events: "Sự kiện",
+            sidebar_ranking: "Xếp hạng",
+            filter_math: "Toán học",
+            filter_literature: "Văn học",
+            filter_physics: "Vật lý",
+            filter_chemistry: "Hóa học",
+            filter_architecture: "Kiến Trúc",
+            filter_geology: "Địa Chất",
+            section_title_math: "Toán Học",
+            course_large_title: "Hàm số & Giới hạn",
+            course_large_instructor: "Mrs. Mai Hà",
+            course_button_enter: "Vào Học",
+            course_soft_skills_title: "Kỹ năng mềm",
+            course_soft_skills_instructor: "Mrs. Hà Nguyễn",
+            course_macroeconomics_title: "Kinh tế vĩ mô",
+            course_macroeconomics_instructor: "Mr. Quốc Anh",
+            course_english_title: "Tiếng Anh",
+            course_english_instructor: "Mr. James",
+            course_mexican_title: "Tiếng Mexico",
+            course_mexican_instructor: "Mr. Rob",
+            course_button_coming_soon: "Sắp ra mắt",
+            chatbot_header_title: "AI Assistant",
+            chatbot_input_placeholder: "Hỏi trợ lý AI...",
+
+            // == UPDATED KEYS FOR ACADEMIC INTEGRITY POLICY ==
+            policy_page_title: "Chính sách Liêm chính Học thuật - TB45.Courses",
+            policy_back_button: "Quay lại Khóa học",
+            policy_main_heading: "Chính sách Liêm chính Học thuật",
+            policy_intro: "Tại <strong>TB45.Courses</strong>, chúng tôi cam kết xây dựng một môi trường học tập công bằng, minh bạch và chất lượng. Sự liêm chính trong học thuật là nền tảng cho giá trị của kiến thức và chứng chỉ mà bạn nhận được. Để bảo vệ cộng đồng học tập của chúng ta, chúng tôi nghiêm túc thực hiện các chính sách chống gian lận.",
+            policy_prohibited_heading: "Các hành vi bị cấm",
+            policy_prohibited_desc: "Các hành vi sau đây được coi là vi phạm nghiêm trọng chính sách liêm chính và sẽ bị xử lý:",
+            policy_plagiarism: "<strong>Đạo văn:</strong> Sao chép bài làm, ý tưởng, hoặc nội dung của người khác mà không trích dẫn nguồn đúng cách.",
+            policy_exam_cheating: "<strong>Gian lận thi cử:</strong> Sử dụng tài liệu không được phép, nhận sự trợ giúp từ người khác, hoặc thoát khỏi màn hình làm bài thi mà không có lý do chính đáng.",
+            policy_account_sharing: "<strong>Chia sẻ tài khoản:</strong> Cho phép người khác sử dụng tài khoản của bạn để học hoặc làm bài kiểm tra hộ.",
+            policy_assisting_cheating: "<strong>Tiếp tay cho gian lận:</strong> Giúp đỡ người khác thực hiện các hành vi gian lận.",
+            policy_measures_heading: "Các biện pháp chúng tôi áp dụng",
+            policy_measures_desc: "Để duy trì một môi trường học tập công bằng, <strong>TB45.Courses</strong> sử dụng các công nghệ tiên tiến để giám sát và phát hiện gian lận:",
+            policy_shuffling: "<strong>Xáo trộn câu hỏi và câu trả lời:</strong> Đề thi được tạo ngẫu nhiên để mỗi thí sinh có một bộ câu hỏi và thứ tự đáp án riêng.",
+            policy_proctoring: "<strong>Giám sát thi trực tuyến:</strong> Đối với các kỳ thi quan trọng, chúng tôi có thể yêu cầu:", // This key is intentionally simple
+            policy_webcam: "<strong>Giám sát qua Webcam (Mô phỏng):</strong> Hệ thống sẽ theo dõi bạn qua webcam để đảm bảo không có ai khác trong phòng thi.",
+            policy_tab_switching: "<strong>Phát hiện chuyển tab:</strong> Hệ thống sẽ ghi nhận và cảnh báo nếu bạn rời khỏi cửa sổ làm bài thi.",
+            policy_anti_copy: "<strong>Chống Sao chép/Dán:</strong> Bạn không thể sao chép nội dung câu hỏi hoặc dán nội dung từ bên ngoài.",
+            policy_time_limit: "<strong>Giới hạn Thời gian Nghiêm ngặt:</strong> Mỗi bài thi đều có thời gian làm bài cụ thể và sẽ tự động nộp khi hết giờ.",
+            policy_consequences_heading: "Hậu quả của việc vi phạm",
+            policy_consequences_desc: "Bất kỳ hành vi vi phạm chính sách liêm chính nào cũng sẽ bị xử lý nghiêm khắc, bao gồm nhưng không giới hạn ở các hình thức sau:",
+            policy_warning: "Nhận cảnh cáo (Tối đa 3 lần trong một bài thi).",
+            policy_nullify_test: "Hủy kết quả bài kiểm tra hoặc bài tập.",
+            policy_nullify_course: "Hủy kết quả toàn bộ khóa học.",
+            policy_permanent_ban: "Khóa tài khoản vĩnh viễn khỏi <strong>TB45.Courses</strong>.",
+            policy_conclusion: "Chúng tôi tin rằng việc tuân thủ các quy tắc này sẽ giúp nâng cao giá trị học tập cho chính bạn và cho toàn bộ cộng đồng. Cảm ơn sự hợp tác của bạn."
         }
     };
 
@@ -201,22 +341,10 @@ document.addEventListener('DOMContentLoaded', function() {
     const BASE_LANGUAGE = 'en'; 
 
     async function callTranslationAPI(text, targetLang, sourceLang = BASE_LANGUAGE) {
-        const API_KEY = 'YOUR_TRANSLATION_API_KEY'; 
-        // console.log(`Simulating API Call: Translating "${text}" from ${sourceLang} to ${targetLang}`);
-
-        // --- BẮT ĐẦU KHỐI MÃ GIẢ LẬP API ---
-        // Trong môi trường thực tế, bạn sẽ sử dụng fetch() để gọi API thật.
-        // --- KẾT THÚC KHỐI MÃ GIẢ LẬP API ---
-        
-        // --- Mã giả lập: Trả về văn bản gốc để tránh hiển thị mã ngôn ngữ không mong muốn ---
-        // --- Để có bản dịch thực sự, bạn cần tích hợp một API dịch thuật thực tế. ---
+        const API_KEY = 'YOUR_TRANSLATION_API_KEY';
         return new Promise(resolve => {
             setTimeout(() => {
-                // console.log(`Mock API: Would translate "${text}" to ${targetLang}. Returning original text as placeholder.`);
-                // Để mô phỏng tốt hơn mà không gây rối UI, có thể trả về text gốc.
-                // Hoặc một chuỗi tĩnh nếu muốn phân biệt rõ ràng hơn trong quá trình debug:
-                // resolve(`(mock translate to ${targetLang}) ${text}`); 
-                resolve(text); // Trả về văn bản gốc cho mục đích hiển thị sạch sẽ
+                resolve(text);
             }, 200); 
         });
     }
@@ -248,7 +376,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 const originalText = getOriginalTextForKey(element, key);
                 if (originalText) {
                     try {
-                        // Gọi API (hiện tại là mock API đã được chỉnh sửa)
                         translatedText = await callTranslationAPI(originalText, lang, BASE_LANGUAGE);
                     } catch (error) {
                         console.error(`Error translating key "${key}" for lang "${lang}":`, error);
@@ -260,39 +387,42 @@ document.addEventListener('DOMContentLoaded', function() {
             }
             
             if (translatedText !== null) {
-                if (element.tagName === 'INPUT' && (element.type === 'text' || element.type === 'email' || element.type === 'password') && element.placeholder !== undefined) {
+                // *** START OF THE FIX ***
+                if (keysForInnerHTML.includes(key)) {
+                    element.innerHTML = translatedText;
+                } else if (element.tagName === 'INPUT' && (element.type === 'text' || element.type === 'email' || element.type === 'password') && element.placeholder !== undefined) {
                     element.placeholder = translatedText;
                 } else if (element.tagName === 'INPUT' && element.type === 'submit') {
                      element.value = translatedText;
                 } else if (element.nodeName === 'TITLE') {
                     element.textContent = translatedText;
                 } else {
+                    // This logic handles elements with children (like icons) that should not be overwritten.
                     let firstTextNode = Array.from(element.childNodes).find(node => node.nodeType === Node.TEXT_NODE && node.textContent.trim() !== '');
                     if (firstTextNode) {
                         firstTextNode.textContent = translatedText + (element.children.length > 0 ? ' ' : ''); 
                     } else if (!element.children.length) { 
                          element.textContent = translatedText;
-                    } else { 
-                         if (element.tagName === 'SPAN' || element.tagName === 'P' || element.tagName === 'H1' || element.tagName === 'H2' || element.tagName === 'H3' || element.tagName === 'A' || element.tagName === 'BUTTON' || element.tagName === 'DIV') {
-                            let htmlContent = '';
-                            let textReplaced = false;
-                            Array.from(element.childNodes).forEach(childNode => {
-                                if (childNode.nodeType === Node.TEXT_NODE && childNode.textContent.trim() !== '' && !textReplaced) {
-                                    htmlContent += translatedText;
-                                    if (element.children.length > 0) htmlContent += ' '; // Thêm space nếu có icon/element con theo sau text node đó
-                                    textReplaced = true; 
-                                } else {
-                                    htmlContent += childNode.outerHTML || childNode.textContent;
-                                }
-                            });
-                             if (!textReplaced && !element.children.length) {
-                                element.innerHTML = translatedText; 
-                             } else if (textReplaced) {
-                                element.innerHTML = htmlContent;
-                             }
+                    } else {
+                        // Fallback for more complex elements without a simple leading text node.
+                        // This part is complex and should be avoided if possible by structuring HTML better.
+                        // For this project, it mainly handles cases where a key is on a container.
+                        let textReplaced = false;
+                        let newHTML = '';
+                        element.childNodes.forEach(child => {
+                            if (child.nodeType === Node.TEXT_NODE && child.textContent.trim() !== '' && !textReplaced) {
+                                newHTML += translatedText;
+                                textReplaced = true;
+                            } else {
+                                newHTML += child.outerHTML || child.textContent;
+                            }
+                        });
+                        if (textReplaced) {
+                            element.innerHTML = newHTML;
                         }
                     }
                 }
+                // *** END OF THE FIX ***
             }
         }
         localStorage.setItem('selectedLanguage', lang);
@@ -376,7 +506,6 @@ document.addEventListener('DOMContentLoaded', function() {
         loginForm.addEventListener('submit', function(e) {
             e.preventDefault();
             const email = document.getElementById('loginEmail').value;
-            // console.log('Attempting login with email:', email);
             const currentLang = localStorage.getItem('selectedLanguage') || BASE_LANGUAGE;
             alert(translations[currentLang]?.login_alert_developing || translations[BASE_LANGUAGE]?.login_alert_developing);
             closeModal(loginModal);
@@ -446,10 +575,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 const cardStyle = window.getComputedStyle(firstCourseCard);
                 courseCardWidth = firstCourseCard.offsetWidth + parseFloat(cardStyle.marginRight);
                 visibleCourses = Math.floor(coursesSlider.offsetWidth / courseCardWidth);
-                if (visibleCourses < 1) visibleCourses = 1; // Ensure at least 1 is visible
+                if (visibleCourses < 1) visibleCourses = 1; 
             }
 
             function updateSliderPosition() {
+                if (!sliderTrack || !prevBtn || !nextBtn) return;
                 sliderTrack.style.transform = `translateX(-${currentSlide * courseCardWidth}px)`;
                 prevBtn.disabled = currentSlide === 0;
                 nextBtn.disabled = currentSlide >= totalCourses - visibleCourses;
@@ -470,9 +600,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 updateSliderPosition();
             });
             
-            // Initial setup
             calculateSliderParams();
-            updateSliderPosition(); // Initial call
+            updateSliderPosition();
         }
     }
 
@@ -490,7 +619,7 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         }, sectionObserverOptions);
         sectionsToAnimate.forEach(section => sectionObserver.observe(section));
-    } else { // Fallback for older browsers or if no sections
+    } else {
         sectionsToAnimate.forEach(section => section.classList.add('visible'));
     }
 
@@ -509,12 +638,12 @@ document.addEventListener('DOMContentLoaded', function() {
             chatbotWindow.style.display = isHidden ? 'flex' : 'none';
             if (isHidden) {
                 const currentLang = localStorage.getItem('selectedLanguage') || BASE_LANGUAGE;
-                updateChatbotLanguage(currentLang); // Make sure chatbot UI is in correct language
-                if (chatbotMessagesEl.children.length === 0) { // Only add welcome if chat is empty
+                updateChatbotLanguage(currentLang);
+                if (chatbotMessagesEl.children.length === 0) {
                     const welcomeMsgKey = 'chatbot_welcome';
                     const welcomeMsg = (translations[currentLang] && translations[currentLang][welcomeMsgKey]) 
                                      || (translations[BASE_LANGUAGE] && translations[BASE_LANGUAGE][welcomeMsgKey]) 
-                                     || "Hello! How can I help you?"; // Fallback if key not found
+                                     || "Hello! How can I help you?";
                     appendMessageToChatbox(welcomeMsg, 'bot');
                 }
             }
@@ -547,7 +676,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     async function getAIChatbotResponse(userMessage) {
-        // console.log("User message to AI:", userMessage);
         return new Promise(resolve => {
             setTimeout(() => {
                 const currentLang = localStorage.getItem('selectedLanguage') || BASE_LANGUAGE;
@@ -564,7 +692,6 @@ document.addEventListener('DOMContentLoaded', function() {
                     botResponse = (translations[currentLang]?.chatbot_response_default || translations[BASE_LANGUAGE]?.chatbot_response_default) + `"${userMessage}"`;
                 }
                 
-                // Fallback if any specific response key was missing
                 if (!botResponse) {
                      botResponse = (translations[BASE_LANGUAGE]?.chatbot_response_default || "I received: ") + `"${userMessage}"`;
                 }
@@ -576,15 +703,23 @@ document.addEventListener('DOMContentLoaded', function() {
     
     function updateChatbotLanguage(lang) {
         if (!chatbotWindow) return;
-        const chatbotTitleEl = chatbotWindow.querySelector('#chatbotHeader span'); // More specific selector for title
-        const chatbotInputEl = chatbotWindow.querySelector('#chatbotInput');
+        const chatbotTitleEl = chatbotWindow.querySelector('[data-translate-key="chatbot_header_title"]') || chatbotWindow.querySelector('#chatbotHeader span');
+        const chatbotInputEl = chatbotWindow.querySelector('[data-translate-key="chatbot_input_placeholder"]') || chatbotWindow.querySelector('#chatbotInput');
         const chatbotSendBtnEl = chatbotWindow.querySelector('#sendChatbotMessageBtn');
 
         const currentTranslations = translations[lang] || translations[BASE_LANGUAGE]; 
 
-        if (chatbotTitleEl && currentTranslations.chatbot_title) chatbotTitleEl.textContent = currentTranslations.chatbot_title;
-        if (chatbotInputEl && currentTranslations.chatbot_placeholder_type_message) chatbotInputEl.placeholder = currentTranslations.chatbot_placeholder_type_message;
-        if (chatbotSendBtnEl && currentTranslations.chatbot_send_button) chatbotSendBtnEl.textContent = currentTranslations.chatbot_send_button;
+        if (chatbotTitleEl) {
+            const key = chatbotTitleEl.dataset.translateKey || 'chatbot_header_title';
+            chatbotTitleEl.textContent = currentTranslations[key] || translations[BASE_LANGUAGE][key];
+        }
+        if (chatbotInputEl) {
+            const key = chatbotInputEl.dataset.translateKey || 'chatbot_input_placeholder';
+            chatbotInputEl.placeholder = currentTranslations[key] || translations[BASE_LANGUAGE][key];
+        }
+        if (chatbotSendBtnEl && currentTranslations.chatbot_send_button) {
+            chatbotSendBtnEl.textContent = currentTranslations.chatbot_send_button;
+        }
     }
 
 }); // End DOMContentLoaded

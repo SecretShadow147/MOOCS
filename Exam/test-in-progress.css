@@ -1,0 +1,270 @@
+/* Import các biến từ file gốc để nhất quán */
+@import url('../courses.css'); 
+
+body {
+    background-color: var(--light-bg-color);
+    font-family: var(--font-secondary);
+    color: var(--text-color);
+    line-height: 1.6;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 20px;
+}
+
+.exam-container {
+    max-width: 900px;
+    width: 100%;
+    margin: 0 auto;
+    background-color: var(--white-color);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    overflow: hidden;
+}
+
+.exam-header {
+    background-color: var(--secondary-color);
+    color: var(--white-color);
+    padding: 20px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.exam-header .logo {
+    color: var(--primary-color);
+    font-size: 24px;
+    text-decoration: none;
+}
+
+.exam-header .exam-title {
+    font-family: var(--font-primary);
+    font-weight: 600;
+    font-size: 1.2rem;
+    margin-left: 15px;
+    opacity: 0.9;
+}
+
+.exam-info {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+#timer-container, #warning-container, #proctoring-status {
+    font-family: var(--font-primary);
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 8px 12px;
+    border-radius: var(--border-radius-md);
+}
+
+#proctoring-status i {
+    color: var(--success-color); /* Màu xanh lá cây cho trạng thái bình thường */
+    transition: color 0.3s ease;
+}
+
+#proctoring-status.warning i {
+    color: var(--error-color); /* Chuyển sang màu đỏ khi có cảnh báo */
+    animation: blink 1s infinite;
+}
+
+#warning-container {
+    color: #F39C12; /* Màu cam cảnh báo */
+}
+
+#timer, #warning-count {
+    font-weight: 700;
+}
+
+.exam-main {
+    padding: 30px;
+}
+
+.question {
+    background-color: #fdfdfd;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-md);
+    margin-bottom: 25px;
+    padding: 20px;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.question-title {
+    font-family: var(--font-primary);
+    font-weight: 600;
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    color: var(--secondary-color);
+}
+
+.answers {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.answers label {
+    display: block;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: var(--border-radius-sm);
+    cursor: pointer;
+    transition: background-color 0.2s, border-color 0.2s;
+}
+
+.answers label:hover {
+    background-color: var(--light-bg-color);
+}
+
+.answers input[type="radio"] {
+    margin-right: 12px;
+    accent-color: var(--primary-color);
+}
+
+.answers label.selected {
+     border-color: var(--primary-color);
+     background-color: #e8f8f5;
+}
+
+
+.submission-area {
+    text-align: center;
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border-color);
+}
+
+#submit-btn {
+    padding: 15px 40px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    background-color: var(--accent-color);
+}
+
+#submit-btn:disabled {
+    background-color: #bdc3c7;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+.exam-footer {
+    text-align: center;
+    padding: 15px;
+    background-color: var(--light-bg-color);
+    color: var(--light-text-color);
+    font-size: 0.9rem;
+}
+.exam-footer a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+.exam-footer a:hover {
+    text-decoration: underline;
+}
+
+.result {
+    padding: 15px;
+    margin-top: 20px;
+    border-radius: var(--border-radius-sm);
+    font-weight: 500;
+}
+.result.correct {
+    background-color: #d4edda;
+    border-left: 4px solid var(--success-color);
+    color: #155724;
+}
+.result.incorrect {
+    background-color: #f8d7da;
+    border-left: 4px solid var(--error-color);
+    color: #721c24;
+}
+
+/* Webcam Feed Simulation */
+.webcam-feed {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 200px;
+    border: 3px solid var(--border-color);
+    border-radius: var(--border-radius);
+    background-color: var(--secondary-color);
+    box-shadow: var(--box-shadow);
+    z-index: 1000;
+    transition: border-color 0.3s ease;
+}
+
+.webcam-feed.warning-flash {
+    border-color: var(--error-color);
+    animation: border-flash 1s;
+}
+
+.webcam-placeholder {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: var(--light-text-color);
+    text-align: center;
+}
+.webcam-placeholder i {
+    font-size: 48px;
+    opacity: 0.5;
+}
+.webcam-placeholder p {
+    margin-top: 10px;
+    font-family: var(--font-primary);
+    font-weight: 500;
+}
+
+@keyframes border-flash {
+    0% { border-color: var(--error-color); }
+    50% { border-color: var(--border-color); }
+    100% { border-color: var(--error-color); }
+}
+
+@keyframes blink {
+    50% { opacity: 0.5; }
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+    .webcam-feed {
+        display: none; /* Ẩn webcam feed trên màn hình nhỏ hơn để không che nội dung */
+    }
+}
+@media (max-width: 768px) {
+    body {
+        padding: 0;
+    }
+    .exam-container {
+        margin: 0;
+        border-radius: 0;
+        height: 100vh;
+    }
+    .exam-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .exam-info {
+        width: 100%;
+        justify-content: space-between;
+        font-size: 0.9rem;
+    }
+    .exam-main {
+        padding: 20px 15px;
+    }
+}

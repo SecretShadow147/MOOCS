@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đang Làm Bài Thi - TB45.Courses</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="test-in-progress.css">
+</head>
+<body>
+    <div class="exam-container">
+        <header class="exam-header">
+            <div class="logo-container">
+                <a href="../index.html" class="logo">TB45.Courses</a>
+                <span class="exam-title">Bài Thi Trắc Nghiệm Tổng Hợp</span>
+            </div>
+            <div class="exam-info">
+                <div id="proctoring-status">
+                    <i class="fas fa-video"></i>
+                    <span>Đang giám sát</span>
+                </div>
+                <div id="timer-container">
+                    <i class="fas fa-clock"></i>
+                    <span>Thời gian còn lại:</span>
+                    <span id="timer">15:00</span>
+                </div>
+                <div id="warning-container">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <span>Cảnh báo:</span>
+                    <span id="warning-count">0</span> / 3
+                </div>
+            </div>
+        </header>
+
+        <main class="exam-main">
+            <div id="questions-container">
+                </div>
+            <div class="submission-area">
+                <button id="submit-btn" class="button">Nộp Bài</button>
+            </div>
+        </main>
+
+        <aside class="webcam-feed">
+            <div class="webcam-placeholder">
+                <i class="fas fa-camera"></i>
+                <p>Webcam Feed</p>
+            </div>
+        </aside>
+
+        <footer class="exam-footer">
+            <p>&copy; By ThunderBolt 45 - Chúc bạn làm bài thi tốt! | <a href="../academic-integrity.html" target="_blank">Chính sách Liêm chính</a></p>
+        </footer>
+    </div>
+
+    <script src="test-questions.js"></script>
+    <script src="test-in-progress.js"></script>
+</body>
+</html>

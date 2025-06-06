@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-translate-key="courses_page_title">Khám Phá Khóa Học - TB45.Courses</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="courses.css">
+</head>
+<body>
+    <div class="courses-container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <a href="index.html" class="logo">TB45.Courses</a>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li><a href="./index.html"><i class="fas fa-home"></i> <span data-translate-key="sidebar_home">Trang Chủ</span></a></li>
+                    <li class="active"><a href="#"><i class="fas fa-book-open"></i> <span data-translate-key="sidebar_courses">Khóa học</span></a></li>
+                    <li><a href="exam.html"><i class="fas fa-file-alt"></i> <span data-translate-key="sidebar_exam">Bài Thi</span></a></li>
+                    <li><a href="#"><i class="fas fa-tasks"></i> <span data-translate-key="sidebar_practice">Luyện tập</span></a></li>
+                    <li><a href="#"><i class="fas fa-trophy"></i> <span data-translate-key="sidebar_competition">Thi Đấu</span></a></li>
+                    <li><a href="#"><i class="fas fa-info-circle"></i> <span data-translate-key="sidebar_info">Thông tin</span></a></li>
+                    <li><a href="./academic-integrity.html"><i class="fas fa-shield-alt"></i> <span data-translate-key="sidebar_integrity">Liêm chính Học thuật</span></a></li>
+                    <li><a href="#"><i class="fas fa-list-ul"></i> <span data-translate-key="sidebar_toc">Mục lục</span></a></li>
+                    <li><a href="#"><i class="fas fa-chalkboard-teacher"></i> <span data-translate-key="sidebar_curriculum">Giáo trình</span></a></li>
+                    <li><a href="#"><i class="fas fa-calendar-alt"></i> <span data-translate-key="sidebar_events">Sự kiện</span></a></li>
+                    <li><a href="#"><i class="fas fa-crown"></i> <span data-translate-key="sidebar_ranking">Xếp hạng</span></a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <header class="main-header">
+                <nav class="filter-nav">
+                    <a href="#" class="filter-active" data-translate-key="filter_math">Toán học</a>
+                    <a href="#" data-translate-key="filter_literature">Văn học</a>
+                    <a href="#" data-translate-key="filter_physics">Vật lý</a>
+                    <a href="#" data-translate-key="filter_chemistry">Hóa học</a>
+                    <a href="#" data-translate-key="filter_architecture">Kiến Trúc</a>
+                    <a href="#" data-translate-key="filter_geology">Địa Chất</a>
+                </nav>
+                <div class="user-actions">
+                    <div class="language-switcher">
+                        <select id="languageSelector">
+                            <option value="vi">Tiếng Việt</option>
+                            <option value="en">English</option>
+                        </select>
+                    </div>
+                    <a href="#" aria-label="Tìm kiếm"><i class="fas fa-search"></i></a>
+                    <a href="#" aria-label="Giỏ hàng"><i class="fas fa-shopping-cart"></i></a>
+                    <a href="#" class="profile-btn">TB</a>
+                </div>
+            </header>
+
+            <section class="course-section">
+                <h1 data-translate-key="section_title_math">Toán Học</h1>
+                <div class="course-display-grid">
+                    <div class="course-card-large">
+                        <div class="card-content">
+                            <h2 data-translate-key="course_large_title">Hàm số & Giới hạn</h2>
+                            <p class="instructor" data-translate-key="course_large_instructor">Mrs. Mai Hà</p>
+                            <a href="#" class="button" data-translate-key="course_button_enter">Vào Học</a>
+                        </div>
+                    </div>
+
+                    <div class="small-courses-grid">
+                        <div class="course-card-small">
+                            <h3 data-translate-key="course_soft_skills_title">Kỹ năng mềm</h3>
+                            <p class="instructor" data-translate-key="course_soft_skills_instructor">Mrs. Hà Nguyễn</p>
+                            <div class="rating">
+                                <i class="fas fa-star"></i> 4.5
+                            </div>
+                            <a href="#" class="button" data-translate-key="course_button_enter">Vào Học</a>
+                        </div>
+                        <div class="course-card-small">
+                            <h3 data-translate-key="course_macroeconomics_title">Kinh tế vĩ mô</h3>
+                            <p class="instructor" data-translate-key="course_macroeconomics_instructor">Mr. Quốc Anh</p>
+                            <div class="rating">
+                                <i class="fas fa-star"></i> 4.2
+                            </div>
+                            <a href="#" class="button" data-translate-key="course_button_enter">Vào Học</a>
+                        </div>
+                        <div class="course-card-small">
+                            <h3 data-translate-key="course_english_title">Tiếng Anh</h3>
+                            <p class="instructor" data-translate-key="course_english_instructor">Mr. James</p>
+                            <div class="rating">
+                                <i class="fas fa-star"></i> 4.8
+                            </div>
+                            <a href="#" class="button" data-translate-key="course_button_enter">Vào Học</a>
+                        </div>
+                        <div class="course-card-small">
+                            <h3 data-translate-key="course_mexican_title">Tiếng Mexico</h3>
+                            <p class="instructor" data-translate-key="course_mexican_instructor">Mr. Rob</p>
+                            <div class="rating">
+                                <i class="fas fa-star"></i> 4.1
+                            </div>
+                            <a href="#" class="button disabled" data-translate-key="course_button_coming_soon">Sắp ra mắt</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+    <div id="aiChatbotWindow" class="hidden">
+        <div id="chatbotHeader">
+            <span data-translate-key="chatbot_header_title">AI Assistant</span>
+            <button id="closeChatbotBtn">&times;</button>
+        </div>
+        <div id="chatbotMessages">
+            </div>
+        <div id="chatbotInputArea">
+            <input type="text" id="chatbotInput" placeholder="Hỏi trợ lý AI..." data-translate-key="chatbot_input_placeholder">
+            <button id="sendChatbotMessageBtn">
+                <i class="fas fa-paper-plane"></i>
+            </button>
+        </div>
+    </div>
+
+    <div id="aiChatbotButton">
+        <i class="fas fa-robot"></i>
+    </div>
+    
+    <script src="button.js"></script>
+    <script src="courses_chat.js"></script>
+    <script src="script.js"></script>
+
+    </body>
+</html>

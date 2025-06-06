@@ -1,0 +1,607 @@
+/* ---- CÁC BIẾN MÀU VÀ FONT (LẤY TỪ style.css ĐỂ NHẤT QUÁN) ---- */
+:root {
+    --primary-color: #1ABC9C;
+    --secondary-color: #2C3E50;
+    --accent-color: #3498DB; /* Thay đổi màu cam thành xanh dương cho chuyên nghiệp */
+    --light-bg-color: #f8f9fa;
+    --white-color: #ffffff;
+    --text-color: #34495e;
+    --light-text-color: #7f8c8d;
+    --border-color: #e9ecef;
+
+    --font-primary: 'Poppins', sans-serif;
+    --font-secondary: 'Open Sans', sans-serif;
+
+    --border-radius: 12px; /* Bo góc lớn hơn cho mềm mại */
+    --box-shadow: 0 4px 25px rgba(0, 0, 0, 0.07);
+}
+
+/* ---- THIẾT LẬP CƠ BẢN ---- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-secondary);
+    background-color: var(--light-bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+/* ---- BỐ CỤC CHÍNH ---- */
+.courses-container {
+    display: grid;
+    grid-template-columns: 240px 1fr; /* Sidebar 240px, phần còn lại là nội dung */
+    height: 100vh;
+}
+
+/* ---- SIDEBAR (THANH BÊN TRÁI) ---- */
+.sidebar {
+    background-color: var(--white-color);
+    border-right: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    padding: 20px 0;
+}
+
+.sidebar-header {
+    padding: 0 25px 20px 25px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.logo {
+    font-family: var(--font-primary);
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.sidebar-nav {
+    flex-grow: 1;
+    margin-top: 20px;
+}
+
+.sidebar-nav ul {
+    list-style: none;
+}
+
+.sidebar-nav ul li a {
+    display: flex;
+    align-items: center;
+    padding: 14px 25px;
+    text-decoration: none;
+    color: var(--light-text-color);
+    font-family: var(--font-primary);
+    font-weight: 500;
+    transition: all 0.3s ease;
+    margin: 4px 10px;
+    border-radius: var(--border-radius);
+}
+
+.sidebar-nav ul li a i {
+    font-size: 18px;
+    margin-right: 15px;
+    width: 20px;
+    text-align: center;
+}
+
+.sidebar-nav ul li a:hover {
+    background-color: var(--light-bg-color);
+    color: var(--primary-color);
+}
+
+.sidebar-nav ul li.active a {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    box-shadow: 0 4px 15px rgba(26, 188, 156, 0.3);
+}
+
+/* ---- MAIN CONTENT (NỘI DUNG CHÍNH) ---- */
+.main-content {
+    padding: 25px 40px;
+    overflow-y: auto;
+}
+
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.filter-nav a {
+    text-decoration: none;
+    color: var(--light-text-color);
+    font-family: var(--font-primary);
+    font-weight: 500;
+    padding: 8px 18px;
+    margin-right: 10px;
+    border-radius: var(--border-radius);
+    transition: all 0.3s ease;
+}
+
+.filter-nav a:hover {
+    background-color: var(--border-color);
+    color: var(--text-color);
+}
+
+.filter-nav a.filter-active {
+    background-color: var(--secondary-color);
+    color: var(--white-color);
+}
+
+.user-actions {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.user-actions a {
+    color: var(--light-text-color);
+    font-size: 18px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+.user-actions a:hover {
+    color: var(--primary-color);
+}
+
+.user-actions .language-switcher select {
+    padding: 8px 12px;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-color);
+    background-color: var(--white-color);
+    color: var(--text-color);
+    cursor: pointer;
+    font-size: 15px;
+    font-family: var(--font-secondary);
+    transition: border-color 0.3s ease;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    padding-right: 30px; 
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2334495e' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 8px center;
+    background-size: 16px;
+}
+
+.user-actions .language-switcher select:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+}
+
+.user-actions .profile-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--accent-color);
+    color: var(--white-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-family: var(--font-primary);
+}
+
+.button {
+    background-color: var(--accent-color);
+    color: var(--white-color);
+    text-decoration: none;
+    padding: 10px 20px;
+    border: none;
+    border-radius: var(--border-radius);
+    font-family: var(--font-primary);
+    font-weight: 500;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(52, 152, 219, 0.4);
+}
+
+.button.chat-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* ---- KHU VỰC KHÓA HỌC ---- */
+.course-section h1 {
+    font-family: var(--font-primary);
+    font-size: 32px;
+    color: var(--secondary-color);
+    margin-bottom: 25px;
+}
+
+.course-display-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+.course-card-large {
+    background: linear-gradient(135deg, var(--secondary-color) 0%, #3e5771 100%);
+    color: var(--white-color);
+    border-radius: var(--border-radius);
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; /* Đẩy nội dung xuống dưới */
+    min-height: 420px; /* Chiều cao tối thiểu */
+    background-image: url('https://images.unsplash.com/photo-1509228468518-180dd4864904?auto=format&fit=crop&q=80&w=800');
+    background-size: cover;
+    background-blend-mode: overlay;
+    background-color: rgba(44, 62, 80, 0.5);
+    position: relative;
+    overflow: hidden;
+}
+
+.course-card-large .card-content {
+    position: relative;
+    z-index: 2;
+}
+
+.course-card-large h2 {
+    font-family: var(--font-primary);
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 10px;
+}
+
+.course-card-large .instructor {
+    font-size: 18px;
+    opacity: 0.9;
+    margin-bottom: 30px;
+}
+
+.course-card-large .button {
+    font-size: 16px;
+    padding: 12px 30px;
+}
+
+.small-courses-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+.course-card-small {
+    background-color: var(--white-color);
+    border-radius: var(--border-radius);
+    padding: 25px;
+    box-shadow: var(--box-shadow);
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s ease;
+}
+.course-card-small:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+}
+
+.course-card-small h3 {
+    font-family: var(--font-primary);
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--secondary-color);
+    flex-grow: 1; /* Đẩy button xuống */
+}
+
+.course-card-small .instructor {
+    color: var(--light-text-color);
+    margin-bottom: 10px;
+}
+
+.course-card-small .rating {
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+.course-card-small .rating .fa-star {
+    color: #FFC107;
+}
+
+.course-card-small .button {
+    width: 100%;
+    text-align: center;
+}
+
+.button.disabled {
+    background-color: #bdc3c7;
+    cursor: not-allowed;
+}
+.button.disabled:hover {
+    transform: none;
+    box-shadow: none;
+}
+
+/* ---- Responsive Design cho trang Courses --- */
+
+/* Laptop nhỏ và Tablet ngang (max-width: 1200px) */
+@media (max-width: 1200px) {
+    .main-content {
+        padding: 25px 30px;
+    }
+    .course-display-grid {
+        grid-template-columns: 1fr; /* Chuyển thành 1 cột */
+    }
+    .course-card-large {
+        min-height: 380px;
+    }
+    .course-card-large h2 {
+        font-size: 40px;
+    }
+}
+
+/* Tablet đứng (max-width: 992px) */
+@media (max-width: 992px) {
+    .courses-container {
+        grid-template-columns: 1fr; /* Chỉ còn nội dung chính */
+    }
+    .sidebar {
+        position: fixed;
+        left: -260px; /* Ẩn sidebar ra ngoài màn hình */
+        top: 0;
+        width: 250px;
+        height: 100vh;
+        z-index: 1100;
+        transition: left 0.3s ease-in-out;
+        box-shadow: 0 0 30px rgba(0,0,0,0.1);
+    }
+    .sidebar.active {
+        left: 0; /* Hiện sidebar khi có class active */
+    }
+
+    /* Nút để mở sidebar trên mobile */
+    #sidebarToggle {
+        display: block; /* Hiện nút này */
+        position: fixed;
+        top: 15px;
+        left: 15px;
+        z-index: 1050;
+        font-size: 24px;
+        background-color: var(--white-color);
+        border-radius: 50%;
+        width: 45px;
+        height: 45px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--secondary-color);
+        box-shadow: var(--box-shadow);
+        border: 1px solid var(--border-color);
+    }
+    .main-content {
+        padding-top: 80px; /* Đẩy nội dung xuống để không bị che bởi nút toggle */
+    }
+
+    .main-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+}
+
+/* Điện thoại (max-width: 768px) */
+@media (max-width: 768px) {
+    .filter-nav {
+        flex-wrap: wrap; /* Cho phép các bộ lọc xuống dòng */
+        gap: 5px;
+    }
+}
+
+
+/*
+================================================
+    PHẦN CSS MỚI CHO AI ASSISTANT (CHATBOT)
+================================================
+*/
+#aiChatbotButton {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(45deg, var(--primary-color), #2ecc71);
+    color: var(--white-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    transition: all 0.3s ease;
+    border: none;
+}
+
+#aiChatbotButton:hover {
+    transform: scale(1.1) rotate(15deg);
+    box-shadow: 0 8px 25px rgba(26, 188, 156, 0.4);
+}
+
+#aiChatbotWindow {
+    position: fixed;
+    bottom: 100px;
+    right: 25px;
+    width: 380px;
+    max-height: 600px;
+    background-color: var(--white-color);
+    border-radius: 15px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+    display: flex;
+    flex-direction: column;
+    z-index: 999;
+    overflow: hidden;
+    transform-origin: bottom right;
+    transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+}
+
+#aiChatbotWindow.hidden {
+    transform: scale(0.5);
+    opacity: 0;
+    pointer-events: none;
+}
+
+#chatbotHeader {
+    background: linear-gradient(135deg, var(--secondary-color), #34495e);
+    color: var(--white-color);
+    padding: 15px 20px;
+    font-family: var(--font-primary);
+    font-weight: 600;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-shrink: 0;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+#closeChatbotBtn {
+    background: none;
+    border: none;
+    color: var(--white-color);
+    font-size: 26px;
+    cursor: pointer;
+    opacity: 0.8;
+    transition: opacity 0.2s, transform 0.2s;
+}
+
+#closeChatbotBtn:hover {
+    opacity: 1;
+    transform: rotate(90deg);
+}
+
+#chatbotMessages {
+    flex-grow: 1;
+    padding: 20px;
+    overflow-y: auto;
+    background-color: #f4f7f9;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+#chatbotMessages .message {
+    padding: 12px 18px;
+    border-radius: 20px;
+    max-width: 85%;
+    line-height: 1.5;
+    word-wrap: break-word;
+    animation: message-pop-in 0.3s ease;
+}
+
+@keyframes message-pop-in {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+#chatbotMessages .message.user {
+    background: linear-gradient(135deg, var(--accent-color), #5dade2);
+    color: var(--white-color);
+    align-self: flex-end;
+    border-bottom-right-radius: 5px; /* "Tail" for user message */
+}
+
+#chatbotMessages .message.bot {
+    background-color: #e9ecef;
+    color: var(--text-color);
+    align-self: flex-start;
+    border-bottom-left-radius: 5px; /* "Tail" for bot message */
+}
+
+/* Typing indicator */
+.message.typing-indicator span {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: var(--light-text-color);
+    margin: 0 2px;
+    animation: typing-bounce 1.2s infinite ease-in-out;
+}
+.message.typing-indicator span:nth-child(2) { animation-delay: -1.0s; }
+.message.typing-indicator span:nth-child(3) { animation-delay: -0.8s; }
+
+@keyframes typing-bounce {
+    0%, 80%, 100% { transform: scale(0); }
+    40% { transform: scale(1.0); }
+}
+
+#chatbotInputArea {
+    padding: 15px;
+    border-top: 1px solid var(--border-color);
+    display: flex;
+    gap: 10px;
+    background-color: var(--white-color);
+    align-items: center;
+}
+
+#chatbotInput {
+    flex-grow: 1;
+    padding: 12px 15px;
+    border: 1px solid #ccc;
+    border-radius: 25px;
+    font-size: 16px;
+    font-family: var(--font-secondary);
+    background-color: #f4f7f9;
+    transition: all 0.3s ease;
+}
+
+#chatbotInput:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    background-color: var(--white-color);
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+}
+
+#sendChatbotMessageBtn {
+    flex-shrink: 0;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: none;
+    background-color: var(--accent-color);
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#sendChatbotMessageBtn:hover {
+    background-color: #2980b9;
+    transform: rotate(360deg) scale(1.1);
+}
+
+/* === CSS MỚI CHO NÚT OUTLINE === */
+/* Style cho nút có viền, phù hợp với header màu trắng */
+.button.button-outline {
+    background-color: transparent;
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+    box-shadow: none; /* Bỏ box-shadow mặc định */
+}
+
+/* Hiệu ứng khi di chuột qua nút */
+.button.button-outline:hover {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(26, 188, 156, 0.3); /* Thêm shadow nhẹ màu xanh lá */
+}

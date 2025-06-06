@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exam - TB45.Courses</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="courses.css" />
+    <style>
+      .exam-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+        padding: 20px 0 40px; /* Thêm padding bottom */
+      }
+
+      .exam-card {
+        background-color: var(--white-color);
+        border-radius: var(--border-radius);
+        padding: 25px;
+        box-shadow: var(--box-shadow);
+        transition: all 0.3s ease;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .exam-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+      }
+
+      .exam-card h3 {
+        font-family: var(--font-primary);
+        font-size: 22px;
+        font-weight: 600;
+        color: var(--secondary-color);
+        margin-bottom: 15px;
+      }
+
+      .exam-card p {
+        color: var(--light-text-color);
+        margin-bottom: 20px;
+        font-size: 15px;
+        flex-grow: 1; /* Đẩy button xuống dưới */
+      }
+
+      .exam-card .button {
+        width: 100%;
+        text-align: center;
+      }
+
+      .exam-section h2 {
+        font-family: var(--font-primary);
+        font-size: 28px;
+        color: var(--secondary-color);
+        margin-top: 20px;
+        padding-bottom: 10px;
+        border-bottom: 2px solid var(--primary-color);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="courses-container">
+      <aside class="sidebar">
+        <div class="sidebar-header">
+          <a href="index.html" class="logo">TB45.Courses</a>
+        </div>
+        <nav class="sidebar-nav">
+          <ul>
+            <li>
+              <a href="./index.html"
+                ><i class="fas fa-home"></i>
+                <span data-translate-key="sidebar_home">Trang Chủ</span></a
+              >
+            </li>
+            <li>
+              <a href="courses.html"
+                ><i class="fas fa-book-open"></i>
+                <span data-translate-key="sidebar_courses">Khóa học</span></a
+              >
+            </li>
+            <li class="active">
+              <a href="exam.html"
+                ><i class="fas fa-file-alt"></i>
+                <span data-translate-key="sidebar_exam">Bài Thi</span></a
+              >
+            </li>
+            <li>
+              <a href="#"
+                ><i class="fas fa-tasks"></i>
+                <span data-translate-key="sidebar_practice">Luyện tập</span></a
+              >
+            </li>
+            <li>
+              <a href="#"
+                ><i class="fas fa-trophy"></i>
+                <span data-translate-key="sidebar_competition">Thi Đấu</span></a
+              >
+            </li>
+            <li>
+              <a href="#"
+                ><i class="fas fa-info-circle"></i>
+                <span data-translate-key="sidebar_info">Thông tin</span></a
+              >
+            </li>
+            <li>
+              <a href="./academic-integrity.html"
+                ><i class="fas fa-shield-alt"></i>
+                <span data-translate-key="sidebar_integrity"
+                  >Liêm chính Học thuật</span
+                ></a
+              >
+            </li>
+            <li>
+              <a href="#"
+                ><i class="fas fa-list-ul"></i>
+                <span data-translate-key="sidebar_toc">Mục lục</span></a
+              >
+            </li>
+            <li>
+              <a href="#"
+                ><i class="fas fa-chalkboard-teacher"></i>
+                <span data-translate-key="sidebar_curriculum"
+                  >Giáo trình</span
+                ></a
+              >
+            </li>
+            <li>
+              <a href="#"
+                ><i class="fas fa-calendar-alt"></i>
+                <span data-translate-key="sidebar_events">Sự kiện</span></a
+              >
+            </li>
+            <li>
+              <a href="#"
+                ><i class="fas fa-crown"></i>
+                <span data-translate-key="sidebar_ranking">Xếp hạng</span></a
+              >
+            </li>
+          </ul>
+        </nav>
+      </aside>
+
+      <main class="main-content">
+        <header class="main-header">
+          <h1 data-translate-key="exam_section_title">Exam Section</h1>
+          <div class="user-actions">
+             <div class="language-switcher">
+                <select id="languageSelector">
+                    <option value="vi">Tiếng Việt</option>
+                    <option value="en">English</option>
+                </select>
+            </div>
+            <a href="#" aria-label="Tìm kiếm"><i class="fas fa-search"></i></a>
+            <a href="#" aria-label="Giỏ hàng"
+              ><i class="fas fa-shopping-cart"></i
+            ></a>
+            <a href="#" class="profile-btn">TB</a>
+          </div>
+        </header>
+
+        <section class="exam-section">
+          <h2 data-translate-key="english_exams_heading">English Exams</h2>
+          <div class="exam-grid" id="examGridEn"></div>
+        </section>
+
+        <section class="exam-section">
+          <h2 data-translate-key="vietnamese_exams_heading">Bài Thi Tiếng Việt</h2>
+          <div class="exam-grid" id="examGridVi"></div>
+        </section>
+      </main>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const examGridEn = document.getElementById("examGridEn");
+        const examGridVi = document.getElementById("examGridVi");
+
+        const exams_en = [
+          {
+            id: "mid-term-math",
+            title: "Mid-term Math Test",
+            description: "Test your knowledge of Functions and Limits.",
+          },
+          {
+            id: "final-physics",
+            title: "Final Physics Exam",
+            description: "Covers topics in Mechanics and Thermodynamics.",
+          },
+          {
+            id: "15-minute-chemistry",
+            title: "15-minute Chemistry Quiz",
+            description: "A quick test on elements and compounds.",
+          },
+          {
+            id: "soft-skills-assessment",
+            title: "Soft Skills Assessment",
+            description: "Evaluate your communication and teamwork skills.",
+          },
+          {
+            id: "macroeconomics-test",
+            title: "Macroeconomics Test",
+            description: "Check your understanding of economic principles.",
+          },
+          {
+            id: "general-knowledge",
+            title: "General Knowledge Test",
+            description: "A test of general knowledge.",
+          },
+        ];
+
+        const exams_vi = [
+          {
+            id: "bai-kiem-tra-giua-ky-toan",
+            title: "Bài kiểm tra giữa kỳ Toán",
+            description: "Kiểm tra kiến thức về Hàm số và Giới hạn.",
+          },
+          {
+            id: "bai-kiem-tra-cuoi-ky-vat-ly",
+            title: "Bài kiểm tra cuối kỳ Vật lý",
+            description: "Bao gồm các chủ đề về Cơ học và Nhiệt động lực học.",
+          },
+          {
+            id: "bai-kiem-tra-15-phut-hoa-hoc",
+            title: "Bài kiểm tra 15 phút Hóa học",
+            description: "Một bài kiểm tra nhanh về các nguyên tố và hợp chất.",
+          },
+          {
+            id: "danh-gia-ky-nang-mem",
+            title: "Bài kiểm tra Kỹ năng mềm",
+            description: "Đánh giá kỹ năng giao tiếp và làm việc nhóm của bạn.",
+          },
+          {
+            id: "kiem-tra-kinh-te-vi-mo",
+            title: "Bài kiểm tra Kinh tế vĩ mô",
+            description:
+              "Kiểm tra sự hiểu biết của bạn về các nguyên tắc kinh tế.",
+          },
+          {
+            id: "kiem-tra-kien-thuc-tong-hop",
+            title: "Bài kiểm tra kiến thức tổng hợp",
+            description: "Kiểm tra kiến thức tổng hợp của bạn.",
+          },
+        ];
+
+        function populateExams(gridElement, examList, buttonText, lang) {
+          if (!gridElement) return;
+          gridElement.innerHTML = ""; // Clear previous content
+          examList.forEach((exam) => {
+            const examCard = document.createElement("div");
+            examCard.className = "exam-card";
+            const examLink = `./Exam/test-in-progress.html?lang=${lang}&exam=${exam.id}`;
+            examCard.innerHTML = `
+                        <h3>${exam.title}</h3>
+                        <p>${exam.description}</p>
+                        <a href="${examLink}" class="button">${buttonText}</a>
+                    `;
+            gridElement.appendChild(examCard);
+          });
+        }
+
+        // Populate both grids
+        populateExams(examGridEn, exams_en, "Start Exam", "en");
+        populateExams(examGridVi, exams_vi, "Bắt đầu thi", "vi");
+      });
+    </script>
+     <script src="script.js"></script>
+     <script src="button.js"></script>
+  </body>
+</html>

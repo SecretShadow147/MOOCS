@@ -39,3 +39,18 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // ... rest of your existing JS code ...
 });
+
+
+document.addEventListener('DOMContentLoaded', function () {
+    const sidebarToggle = document.getElementById('sidebarToggle');
+    const sidebar = document.querySelector('.sidebar');
+    const mainContent = document.querySelector('.main-content');
+
+    if (sidebarToggle && sidebar) {
+        sidebarToggle.addEventListener('click', function() {
+            sidebar.classList.toggle('active');
+            // Bạn có thể thêm lớp vào main-content để làm mờ hoặc đẩy nội dung khi sidebar mở
+            // mainContent.classList.toggle('sidebar-open'); 
+        });
+    }
+});

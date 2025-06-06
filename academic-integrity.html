@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-translate-key="policy_page_title">Academic Integrity Policy - TB45.Courses</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="courses.css">
+    <style>
+        .policy-container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 40px;
+            background-color: var(--white-color);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+        .policy-container h1 {
+            font-family: var(--font-primary);
+            color: var(--secondary-color);
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        .policy-container h2 {
+            font-family: var(--font-primary);
+            color: var(--secondary-color);
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+        .policy-container p, .policy-container ul {
+            margin-bottom: 15px;
+            line-height: 1.7;
+        }
+        .policy-container ul {
+            padding-left: 20px;
+        }
+        .policy-container li {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header class="main-header" style="padding: 20px 40px; background-color: var(--white-color); border-bottom: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center;">
+        <a href="index.html" class="logo">TB45.Courses</a>
+        <div class="user-actions">
+            <div class="language-switcher">
+                <select id="languageSelector">
+                    <option value="en">English</option>
+                    <option value="vi">Tiếng Việt</option>
+                </select>
+            </div>
+            <a href="courses.html" class="button button-outline" data-translate-key="policy_back_button">Back to Courses</a>
+        </div>
+    </header>
+
+    <div class="policy-container">
+        <h1 data-translate-key="policy_main_heading">Academic Integrity Policy</h1>
+
+        <p data-translate-key="policy_intro">At <strong>TB45.Courses</strong>, we are committed to building a fair, transparent, and high-quality learning environment. Academic integrity is the foundation of the value of the knowledge and certificates you receive. To protect our learning community, we strictly enforce anti-cheating policies.</p>
+
+        <h2 data-translate-key="policy_prohibited_heading">Prohibited Actions</h2>
+        <p data-translate-key="policy_prohibited_desc">The following behaviors are considered serious violations of the integrity policy and will be handled accordingly:</p>
+        <ul>
+            <li data-translate-key="policy_plagiarism"><strong>Plagiarism:</strong> Copying assignments, ideas, or content from others without proper citation.</li>
+            <li data-translate-key="policy_exam_cheating"><strong>Cheating on exams:</strong> Using unauthorized materials, receiving help from others, or leaving the test screen without a valid reason.</li>
+            <li data-translate-key="policy_account_sharing"><strong>Sharing accounts:</strong> Allowing others to use your account to study or take tests on your behalf.</li>
+            <li data-translate-key="policy_assisting_cheating"><strong>Assisting in cheating:</strong> Helping others to commit fraudulent acts.</li>
+        </ul>
+
+        <h2 data-translate-key="policy_measures_heading">Measures We Apply</h2>
+        <p data-translate-key="policy_measures_desc">To maintain a fair learning environment, <strong>TB45.Courses</strong> uses advanced technologies to monitor and detect cheating:</p>
+        <ul>
+            <li data-translate-key="policy_shuffling"><strong>Shuffling questions and answers:</strong> Exam questions are randomized so that each candidate has a unique set of questions and answer order.</li>
+            <li data-translate-key="policy_proctoring"><strong>Online Exam Proctoring:</strong> For important exams, we may require:
+                <ul>
+                    <li data-translate-key="policy_webcam"><strong>Webcam Monitoring (Simulated):</strong> The system will monitor you via webcam to ensure no one else is in the exam room.</li>
+                    <li data-translate-key="policy_tab_switching"><strong>Tab Switching Detection:</strong> The system will record and warn if you leave the exam window.</li>
+                    <li data-translate-key="policy_anti_copy"><strong>Anti-Copy/Paste:</strong> You cannot copy question content or paste content from outside.</li>
+                </ul>
+            </li>
+            <li data-translate-key="policy_time_limit"><strong>Strict Time Limits:</strong> Each exam has a specific time limit and will be submitted automatically when the time is up.</li>
+        </ul>
+
+        <h2 data-translate-key="policy_consequences_heading">Consequences of Violation</h2>
+        <p data-translate-key="policy_consequences_desc">Any violation of the integrity policy will be dealt with strictly, including but not limited to the following forms:</p>
+        <ul>
+            <li data-translate-key="policy_warning">Receiving a warning (Maximum of 3 times in one exam).</li>
+            <li data-translate-key="policy_nullify_test">Cancellation of test or assignment results.</li>
+            <li data-translate-key="policy_nullify_course">Cancellation of the entire course result.</li>
+            <li data-translate-key="policy_permanent_ban">Permanent account suspension from <strong>TB45.Courses</strong>.</li>
+        </ul>
+        <p data-translate-key="policy_conclusion">We believe that adhering to these rules will help enhance the learning value for yourself and the entire community. Thank you for your cooperation.</p>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="button.js"></script>
+</body>
+</html>
